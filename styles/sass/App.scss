@@ -1,0 +1,114 @@
+@use "theme";
+
+body {
+	font-family: theme.$proxima-soft;
+	font-style: normal;
+	font-weight: 300;
+	color: theme.$grey60;
+	background-color:#f8f9fa;
+	padding-bottom:50px;
+}
+
+
+/*** Block ***/
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: proxima-soft, sans-serif;
+	font-style: normal;
+	font-weight:600;
+	text-align:center;
+}
+h1 {font-size: 1.2rem;color: theme.$turquoise;}
+h2 {font-size: 1rem;}
+
+p {
+	text-align:center;
+	font-size:1.1rem;
+	line-height:1.8rem;
+}
+
+ul.list {
+	text-align:center;
+	padding:0;margin:.5em 0;
+	li {
+		font-size:1.1rem;
+		line-height:1.5rem;
+		padding:0;margin:0 0 .2rem;
+		list-style-type:none;
+		&::after {content:'–';display:block;color: theme.$orange;font-weight:bold;}
+		&:last-child::after {display:none;}
+	}
+}
+
+
+/*** Inline ***/
+
+.vr {color: theme.$turquoise;}
+
+
+/*** Modals ***/
+
+.modal-body {
+	img {width:100%;}
+}
+
+
+/* Portfolio */
+
+.card-portfolio {
+	width:100%;
+	border:1px solid rgb(200,200,200);
+	border-radius:3px;
+	margin:0 auto 40px;
+	overflow:hidden;
+	img {width:100%;}
+	&:hover {border-color: theme.$turquoise;}
+}
+
+.card-portfolio-desktop, .card-portfolio-tablet-landscape {width:95%;}
+.card-portfolio-tablet-portrait {width:85%;}
+.card-portfolio-mobile {width:50%;}
+
+.card-portfolio-logo {
+	margin-bottom:30px;
+	.portfolio-logo {
+		text-align:center;
+		margin-bottom:15px;
+		img {width:40px;}
+	}
+}
+
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {  
+
+	.card-portfolio {pointer-events:none;}
+	.card-portfolio-desktop, .card-portfolio-tablet-landscape {width:60%;}
+	.card-portfolio-tablet-portrait {width:50%;}
+	.card-portfolio-mobile {width:30%;}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
