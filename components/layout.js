@@ -12,7 +12,7 @@ function RenderMain(props) {
 	if (props.page == "Home") {nav="Home"}
 	if (props.page == "Flipboard") {nav="Portfolio"}
 	if (props.page == "Bank Internet") {nav="Portfolio"}
-	if (props.page == "Bank Intranet") {nav="Portfolio"}
+	if (props.page == "Snap2Play") {nav="Portfolio"}
 	if (props.page == "Mcdonalds") {nav="Portfolio"}
 	if (props.page == "Lego") {nav="Portfolio"}			
 	if (props.page == "Services") {nav="Services"}
@@ -28,7 +28,6 @@ function RenderSecondary(props) {
 	
 	if (props.page == "Flipboard") {nav="Flipboard"}
 	if (props.page == "Bank Internet") {nav="Bank Internet"}
-	if (props.page == "Bank Intranet") {nav="Bank Intranet"}
 	if (props.page == "Snap2Play") {nav="Snap2Play"}
 	if (props.page == "Mcdonalds") {nav="Mcdonalds"}
 	if (props.page == "Lego") {nav="Lego"}

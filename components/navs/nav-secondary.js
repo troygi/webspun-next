@@ -27,11 +27,7 @@ export default function Nav(props) {
 			</Link>
 			
 			<Link href="/portfolio/bank-internet">
-			<a className={"nav-link"+bankInternet}>Bank Internet</a>
-			</Link>
-			
-			<Link href="/portfolio/bank-intranet">
-			<a className={"nav-link"+bankIntranet}>Bank Intranet</a>
+			<a className={"nav-link"+bankInternet}>HSBC</a>
 			</Link>
 			
 			<Link href="/portfolio/snap2play">
@@ -50,9 +46,18 @@ export default function Nav(props) {
 		
 		<style jsx>{`
 		
-		#navbar-top {
-			background-color: #f8f9fa;
-			margin-bottom:3em;
+		#nav-portfolio {
+			width:100%;
+			overflow:auto;
+			white-space: nowrap;
+			flex-wrap: nowrap;
+			
+			/* Hide scrollbar for IE and Edge */
+			-ms-overflow-style: none;
+		}
+		
+		#nav-portfolio::-webkit-scrollbar {
+		  display: none;
 		}
 
 		.nav-link {
@@ -60,9 +65,9 @@ export default function Nav(props) {
 			padding:.5rem .8rem;
 			position:relative;
 			-webkit-transition: all .4s;
-			transition: all .4s;	
+			transition: all .4s;
 		}
-
+		
 		.nav-link ::after {
 			content:'';
 			background-color:transparent;

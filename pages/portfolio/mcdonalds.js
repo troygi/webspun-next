@@ -1,5 +1,11 @@
 import Head from 'next/head'
 import Layout from '../../components/layout';
+import Carousel from '../../components/navs/carousel';
+import CarouselItem from '../../components/navs/carousel-item';
+
+const divStyle = {
+  height: '70%'
+};
 
 export default function Home() {
 	return (
@@ -16,17 +22,17 @@ export default function Home() {
 		McDonald's In-store kiosk UI
 		</h1>
 	</div>
+	
+	<Carousel id="carouselExampleControls-2">
+			
+		<CarouselItem activeState="active">
+			<img src="/img/portfolio/mcdonalds-kiosk.png" className="d-block carousel-img" style={divStyle} alt="McDonald's Kiosk Screen" />
+		</CarouselItem>
+		
+	</Carousel>
 
-	<figure className="card-portfolio card-portfolio-desktop" data-toggle="modal" data-target="#portfolio-modal" data-modal-title="McDonald's Kiosk" data-modal-src="img/portfolio/mcDonalds-kiosk.png" data-modal-size="modal-lg">
-		<img src="/img/portfolio/mcdonalds-kiosk.png" alt="McDonald's Kiosk Screen" />
-	</figure>
-  	
   	</Layout>
-  
-	<style jsx>{`
-
-	`}</style>
-
+  	
   	</React.Fragment>
 		
 	)

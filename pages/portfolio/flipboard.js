@@ -1,5 +1,8 @@
 import Head from 'next/head'
 import Layout from '../../components/layout';
+import Carousel from '../../components/navs/carousel';
+import CarouselItem from '../../components/navs/carousel-item';
+
 
 export default function Home() {
 	return (
@@ -13,27 +16,27 @@ export default function Home() {
 			</div>
 
 			<h1>
-			Flipboard - Template design and development 
+			Flipboard - Template Design & Development 
 			</h1>
 		</div>
-
-		<figure className="card-portfolio card-portfolio-tablet-landscape" data-toggle="modal" data-target="#portfolio-modal" data-modal-title="National Geographic - Landscape" data-modal-src="img/portfolio/natgeo-land.png" data-modal-size="modal-lg">
-			<img src="/img/portfolio/natgeo-land.png" alt="National Geographic Screen - Landscape" />
-		</figure>
-
-		<figure className="card-portfolio card-portfolio-tablet-portrait" data-toggle="modal" data-target="#portfolio-modal" data-modal-title="National Geographic - Portrait" data-modal-src="img/portfolio/natgeo-port.png" data-modal-size="modal-lg">
-			<img src="/img/portfolio/natgeo-port.png" alt="National Geographic Screen - Portrait" />
-		</figure>
-
-		<figure className="card-portfolio card-portfolio-mobile" data-toggle="modal" data-target="#portfolio-modal" data-modal-title="National Geographic - Mobile" data-modal-src="img/portfolio/natgeo-mobile.png" data-modal-size="modal-sm">
-			<img src="/img/portfolio/natgeo-mobile.png" alt="National Geographic Screen - Mobile" />
-		</figure>
+		
+		<Carousel id="carouselExampleControls-2">
+			
+			<CarouselItem activeState="active">
+				<img src="/img/portfolio/natgeo-land.png" className="d-block carousel-img" alt="National Geographic Screen - Landscape" />
+			</CarouselItem>
+			
+			<CarouselItem>
+				<img src="/img/portfolio/natgeo-port.png" className="d-block carousel-img carousel-img-portrait" alt="National Geographic Screen - Portrait" />
+			</CarouselItem>
+			
+			<CarouselItem>
+				<img src="/img/portfolio/natgeo-mobile.png" className="d-block carousel-img carousel-img-mobile" alt="National Geographic Screen - Mobile" />
+			</CarouselItem>
+			
+		</Carousel>
   	
   	</Layout>
-  
-	<style jsx>{`
-
-	`}</style>
 
   	</React.Fragment>
 		

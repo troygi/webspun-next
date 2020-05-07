@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Layout from '../../components/layout';
+import Carousel from '../../components/navs/carousel';
+import CarouselItem from '../../components/navs/carousel-item';
 
 export default function Home() {
 	return (
@@ -13,28 +15,38 @@ export default function Home() {
 		</div>
 
 		<h1>
-		Bank Internet - Theme design & development
+		Theme Design & Development
 		</h1>
 	</div>
+	
+		<Carousel id="carouselExampleControls">
+		
+			<CarouselItem activeState="active">
+				<img src="/img/portfolio/hsbc-internet-home.png" className="d-block carousel-img" alt="Personal Banking Screen" />
+			</CarouselItem>
+			
+			<CarouselItem>
+				<img src="/img/portfolio/hsbc-internet-accounts.png" className="d-block carousel-img" alt="Your Accounts Screen" />
+			</CarouselItem>
+			
+			<CarouselItem>
+				<img src="/img/portfolio/hsbc-intranet-overview.png" className="d-block carousel-img" alt="One HSBC Overview Screen" />
+			</CarouselItem>
+			
+			<CarouselItem>
+				<img src="/img/portfolio/hsbc-intranet-overview.png" className="d-block carousel-img" alt="One HSBC Adoption Screen" />
+			</CarouselItem>
+			
+			<CarouselItem>
+				<img src="/img/portfolio/hsbc-mobile-menu.png" className="d-block carousel-img carousel-img-mobile" alt="Personal Banking Screen - Mobile" />
+			</CarouselItem>
+			
+		</Carousel>
 
-	<figure className="card-portfolio card-portfolio-desktop" data-toggle="modal" data-target="#portfolio-modal" data-modal-title="Personal Banking" data-modal-src="img/portfolio/hsbc-internet-home.png" data-modal-size="modal-lg">
-		<img src="/img/portfolio/hsbc-internet-home.png" alt="Personal Banking Screen" />
-	</figure>
-
-	<figure className="card-portfolio card-portfolio-desktop" data-toggle="modal" data-target="#portfolio-modal" data-modal-title="Your Accounts" data-modal-src="img/portfolio/hsbc-internet-accounts.png" data-modal-size="modal-lg">
-		<img src="/img/portfolio/hsbc-internet-accounts.png" alt="Your Accounts Screen" />
-	</figure>
-
-	<figure className="card-portfolio card-portfolio-mobile" data-toggle="modal" data-target="#portfolio-modal" data-modal-title="Personal Banking - Mobile" data-modal-src="img/portfolio/hsbc-mobile-menu.png" data-modal-size="modal-sm">
-		<img src="/img/portfolio/hsbc-mobile-menu.png" alt="Personal Banking Screen - Mobile" />
-	</figure>
 	
   	</Layout>
   
-	<style jsx>{`
-
-	`}</style>
-
+	
   	</React.Fragment>
 		
 	)

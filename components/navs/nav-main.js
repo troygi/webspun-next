@@ -15,6 +15,12 @@ export default function Nav(props) {
 	return ( 
 		<React.Fragment>
 		
+		{/* 
+		<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+			<span className="navbar-toggler-icon"></span>
+		</button>
+		*/}
+		
 		<nav id="navbar-bottom" className="navbar flex-row justify-content-center align-items-center navbar-light">
 			<ul id="nav-main" className="nav nav-main flex-nowrap nav-pills justify-content-center">
 				<li className="nav-item mr-2">
@@ -38,6 +44,16 @@ export default function Nav(props) {
 		
 		<style jsx>{`
 		
+		
+		.navbar-toggler {
+			position:fixed;
+			bottom:5px;
+			left:0;
+			z-index:100;
+			border-top-width:0;
+		  	border-bottom-width:0;
+		}
+
 		#navbar-bottom {
 			background-color: #69c9ca;
 			position:fixed;
