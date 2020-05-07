@@ -18,14 +18,20 @@ const Carousel = props => (
   
   
 	<style jsx global>{`
+	
+	.carousel {
+		max-width: 600px;
+		margin: 0 auto; 
+		background-color: rgb(200,200,200);
+	}
 
 	.carousel-item-box {
-		height:400px;
+		height:450px;
+		
+		//border:1px dotted green;
 	}
 
 	img.carousel-img {
-		width:auto;
-		height:80%;
 		border:1px solid rgb(100,100,100);
 		margin:0 auto;
 	}
@@ -33,7 +39,9 @@ const Carousel = props => (
 	// Small devices (landscape phones, 576px and up)
 	@media (min-width: 576px) {
 		.carousel-item-box {
-			height:500px;
+			height: 620px;
+			
+			//border:1px dotted blue;
 		}
 	}
 
@@ -41,13 +49,8 @@ const Carousel = props => (
 	@media (min-width: 768px) {
 		.carousel-item-box {
 			height:600px;
-		}
-	}
-
-	// Large devices (desktops, 992px and up)
-	@media (min-width: 992px) {
-		.carousel-item-box {
-			height:700px;
+			
+			//border:1px dotted blue;
 		}
 	}
 

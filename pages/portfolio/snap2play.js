@@ -19,11 +19,11 @@ export default function Home() {
 	<Carousel id="carouselExampleControls">
 	
 		<CarouselItem activeState="active">
-			<img src="/img/portfolio/snap-2-play.png" className="d-block carousel-img" alt="Home Screen" />
+			<img src="/img/portfolio/snap-2-play.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="Home Screen" />
 		</CarouselItem>
 		
 		<CarouselItem>
-			<img src="/img/portfolio/snap-2-play-mobile.png" className="d-block carousel-img carousel-img-mobile" alt="Home Screen - Mobile" />
+			<img src="/img/portfolio/snap-2-play-mobile.png" className="d-block carousel-img carousel-img-mobile" style={{width: "auto", height: "90%"}} alt="Home Screen - Mobile" />
 		</CarouselItem>
 		
 	</Carousel>

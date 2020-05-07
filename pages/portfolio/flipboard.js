@@ -23,15 +23,15 @@ export default function Home() {
 		<Carousel id="carouselExampleControls-2">
 			
 			<CarouselItem activeState="active">
-				<img src="/img/portfolio/natgeo-land.png" className="d-block carousel-img" alt="National Geographic Screen - Landscape" />
+				<img src="/img/portfolio/natgeo-land.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="National Geographic Screen - Landscape" />
 			</CarouselItem>
 			
 			<CarouselItem>
-				<img src="/img/portfolio/natgeo-port.png" className="d-block carousel-img carousel-img-portrait" alt="National Geographic Screen - Portrait" />
+				<img src="/img/portfolio/natgeo-port.png" className="d-block carousel-img carousel-img-portrait" style={{width: "auto", height: "90%"}} alt="National Geographic Screen - Portrait" />
 			</CarouselItem>
 			
 			<CarouselItem>
-				<img src="/img/portfolio/natgeo-mobile.png" className="d-block carousel-img carousel-img-mobile" alt="National Geographic Screen - Mobile" />
+				<img src="/img/portfolio/natgeo-mobile.png" className="d-block carousel-img carousel-img-mobile" style={{width: "auto", height: "90%"}} alt="National Geographic Screen - Mobile" />
 			</CarouselItem>
 			
 		</Carousel>

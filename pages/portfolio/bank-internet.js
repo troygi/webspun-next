@@ -22,23 +22,23 @@ export default function Home() {
 		<Carousel id="carouselExampleControls">
 		
 			<CarouselItem activeState="active">
-				<img src="/img/portfolio/hsbc-internet-home.png" className="d-block carousel-img" alt="Personal Banking Screen" />
+				<img src="/img/portfolio/hsbc-internet-home.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="Personal Banking Screen" />
 			</CarouselItem>
 			
 			<CarouselItem>
-				<img src="/img/portfolio/hsbc-internet-accounts.png" className="d-block carousel-img" alt="Your Accounts Screen" />
+				<img src="/img/portfolio/hsbc-internet-accounts.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="Your Accounts Screen" />
 			</CarouselItem>
 			
 			<CarouselItem>
-				<img src="/img/portfolio/hsbc-intranet-overview.png" className="d-block carousel-img" alt="One HSBC Overview Screen" />
+				<img src="/img/portfolio/hsbc-intranet-overview.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="One HSBC Overview Screen" />
 			</CarouselItem>
 			
 			<CarouselItem>
-				<img src="/img/portfolio/hsbc-intranet-overview.png" className="d-block carousel-img" alt="One HSBC Adoption Screen" />
+				<img src="/img/portfolio/hsbc-intranet-overview.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="One HSBC Adoption Screen" />
 			</CarouselItem>
 			
 			<CarouselItem>
-				<img src="/img/portfolio/hsbc-mobile-menu.png" className="d-block carousel-img carousel-img-mobile" alt="Personal Banking Screen - Mobile" />
+				<img src="/img/portfolio/hsbc-mobile-menu.png" className="d-block carousel-img carousel-img-mobile" style={{width: "auto", height: "90%"}} alt="Personal Banking Screen - Mobile" />
 			</CarouselItem>
 			
 		</Carousel>

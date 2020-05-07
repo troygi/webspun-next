@@ -3,9 +3,6 @@ import Layout from '../../components/layout';
 import Carousel from '../../components/navs/carousel';
 import CarouselItem from '../../components/navs/carousel-item';
 
-const divStyle = {
-  height: '70%'
-};
 
 export default function Home() {
 	return (
@@ -26,7 +23,7 @@ export default function Home() {
 	<Carousel id="carouselExampleControls-2">
 			
 		<CarouselItem activeState="active">
-			<img src="/img/portfolio/mcdonalds-kiosk.png" className="d-block carousel-img" style={divStyle} alt="McDonald's Kiosk Screen" />
+			<img src="/img/portfolio/mcdonalds-kiosk.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="McDonald's Kiosk Screen" />
 		</CarouselItem>
 		
 	</Carousel>
