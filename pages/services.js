@@ -15,7 +15,7 @@ export default function Home() {
 	<ul className="list">
 		<li>Usability, accessibility, responsive and searchable</li>
 	
-		<li>Built on application platforms such as Angular React, Nodejs, Wordpress or PHP</li>
+		<li>Built on application platforms such as React, Nodejs, Wordpress or PHP</li>
 	
 		<li>Built with W3C and WCAG compliant HTML, CSS, and JavaScript</li>
 	
