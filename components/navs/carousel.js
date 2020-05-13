@@ -27,8 +27,6 @@ const Carousel = props => (
 
 	.carousel-item-box {
 		height:450px;
-		
-		//border:1px dotted green;
 	}
 
 	img.carousel-img {
@@ -40,8 +38,6 @@ const Carousel = props => (
 	@media (min-width: 576px) {
 		.carousel-item-box {
 			height: 620px;
-			
-			//border:1px dotted blue;
 		}
 	}
 
@@ -49,8 +45,6 @@ const Carousel = props => (
 	@media (min-width: 768px) {
 		.carousel-item-box {
 			height:600px;
-			
-			//border:1px dotted blue;
 		}
 	}
 

@@ -11,9 +11,9 @@ export default function Home() {
   	<Layout page="Snap2Play">
   	
 	<div className="card-portfolio-logo">
-		<h1>
+		{/*}<h1>
 		Snap2play - Web site design & development
-		</h1>
+		</h1>*/}
 	</div>
 	
 	<Carousel id="carouselExampleControls">

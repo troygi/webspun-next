@@ -14,9 +14,9 @@ export default function Home() {
 			<img src="/img/portfolio/hsbc-logo.png" alt="Logo" />
 		</div>
 
-		<h1>
+		{/*<h1>
 		Theme Design & Development
-		</h1>
+		</h1>*/}
 	</div>
 	
 		<Carousel id="carouselExampleControls">

@@ -15,7 +15,7 @@ export default function Home() {
 			<img src="/img/portfolio/lego-logo.jpg" alt="Logo" />
 		</div>
 	
-		<h1>Lego - Minifigs animations for Star Wars &amp; Johnny Thunder</h1>
+		{/* <h1>Minifigs animations for Star Wars &amp; Johnny Thunder</h1> */}
 	</div>
 	
 	

@@ -15,9 +15,7 @@ export default function Home() {
 			<img src="/img/portfolio/mcdonalds-logo.jpg" alt="Logo" />
 		</div>
 
-		<h1>
-		McDonald's In-store kiosk UI
-		</h1>
+		{/* <h1>In-store kiosk UI</h1> */}
 	</div>
 	
 	<Carousel id="carouselExampleControls-2">

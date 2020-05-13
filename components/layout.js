@@ -10,6 +10,8 @@ function RenderMain(props) {
 	var nav="";
 	
 	if (props.page == "Home") {nav="Home"}
+	if (props.page == "Playground") {nav="Playground"}
+	if (props.page == "3D Cube") {nav="Playground"}
 	if (props.page == "Flipboard") {nav="Portfolio"}
 	if (props.page == "Bank Internet") {nav="Portfolio"}
 	if (props.page == "Snap2Play") {nav="Portfolio"}
@@ -52,7 +54,7 @@ const Layout = props => (
 	
 	<header id="navbar-top" className="navbar flex-column justify-content-center align-items-center  navbar-expand-sm navbar-light">
 		<Logo {...props} />
-		<RenderSecondary {...props} />
+		{/* <RenderSecondary {...props} /> */}
 	</header>
 	
 	<main className={"container-fluid " + props.page}>
@@ -66,6 +68,10 @@ const Layout = props => (
 	<style>{`
 	main.container-fluid {
 		margin-top:30px;
+	}
+	
+	main.About, main.Services {
+		max-width:500px;
 	}
     `}</style>
     

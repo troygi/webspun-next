@@ -15,9 +15,7 @@ export default function Home() {
 				<img src="/img/portfolio/fb-logo.png" alt="Logo" />
 			</div>
 
-			<h1>
-			Flipboard - Template Design & Development 
-			</h1>
+			{/* <h1>Template Design & Development</h1> */}
 		</div>
 		
 		<Carousel id="carouselExampleControls-2">

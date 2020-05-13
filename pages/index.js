@@ -5,8 +5,11 @@ export default function Home() {
 	return (
   	
   	<React.Fragment>
-  	<Layout page="About" />
-  	
+  	<Layout page="About">
+		<p>
+		The studio of Dennis "Troy" Gilliland. I’m an user experience professional with 20+ years experience in UI design and development.
+		</p>
+  	</Layout>
   	</React.Fragment>
 		
 	)
