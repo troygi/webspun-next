@@ -16,7 +16,7 @@ export default function Home() {
 		</h1>*/}
 	</div>
 	
-	<Carousel id="carouselExampleControls">
+	<Carousel id="carouselExampleControls" dataContent="Snap2play Web site design & development">
 	
 		<CarouselItem activeState="active">
 			<img src="/img/portfolio/snap-2-play.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="Home Screen" />

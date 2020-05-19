@@ -19,7 +19,7 @@ export default function Home() {
 	</div>
 	
 	
-	<Carousel id="carouselExampleControls">
+	<Carousel id="carouselExampleControls" dataContent="Lego Minifigs animations for Star Wars &amp; Johnny Thunder">
 		
 		<CarouselItem activeState="active">
 			<img src="/img/portfolio/dooku-draws-saber.gif" className="d-block carousel-img carousel-img-mobile" style={{width: "60%", height: "auto"}} alt="Dooku Saber Draw Animation" />

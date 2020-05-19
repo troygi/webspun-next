@@ -1,7 +1,4 @@
-//import React, { Component } from 'react';
-
 import React, { useState,  useEffect} from 'react';
-
 import * as THREE from 'three';
 import Canvas from './canvas';
 import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls';

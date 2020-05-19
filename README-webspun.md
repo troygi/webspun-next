@@ -2,6 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+## Upgrade to latest Next.js
+npm i next@latest react@latest react-dom@latest
+
 
 ## Install
 Install SASS : npm install sass
@@ -12,6 +15,19 @@ Install SASS : npm install sass
 Run to start : npm run dev | npm run dev -- -p <your port here>, npm run dev -- -p 3004
 
 Open [http://localhost:3010](http://localhost:3010) with your browser to see the result.
+
+
+## Static build
+
+Update scripts:
+
+"scripts": {
+  "build": "next build && next export"
+}
+
+Then run:
+
+npm run build
 
 
 ## Vercel

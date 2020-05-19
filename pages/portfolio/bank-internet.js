@@ -19,7 +19,7 @@ export default function Home() {
 		</h1>*/}
 	</div>
 	
-		<Carousel id="carouselExampleControls">
+		<Carousel id="carouselExampleControls" dataContent="HSBC Template Design and Development">
 		
 			<CarouselItem activeState="active">
 				<img src="/img/portfolio/hsbc-internet-home.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="Personal Banking Screen" />

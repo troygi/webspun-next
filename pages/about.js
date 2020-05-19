@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Layout from '../components/layout';
 
 export default function Home() {
+
 	return (
   
   	<React.Fragment>
@@ -11,10 +12,15 @@ export default function Home() {
 		<h1>About</h1>
 	
 		<p>
-		Webspun Creative, LLC is the studio of Dennis "Troy" Gilliland. I’m an user experience professional with 20+ years experience in UI design and development. 
+		Webspun Creative, LLC is the studio of designer and software engineer, Dennis "Troy" Gilliland. 
 		</p>
 		
+
 		{/* 
+		
+		<p>
+		Webspun Creative, LLC is the studio of Dennis "Troy" Gilliland. I’m an user experience professional with 20+ years experience in UI design and development. 
+		</p>
 		<p>
 		Webspun Creative, LLC is the studio of Dennis "Troy" Gilliland. I’m an user experience professional with 20+ years experience in UI design and development. 
 		I started my career in Madrid, Spain designing CD covers and promotion material for record producers, Juan Tarodo and Jorge Alvarez (Mecano &amp; Olé Olé).
@@ -36,12 +42,11 @@ export default function Home() {
 		</ul>
 		*/}
 		
-		{/* 
+		
 		<p>
-		<a href="tel:630-440-9549">630-440-9549</a> <span class="vr">|</span>
 		<a href="mailto:troy@webspun.org">troy@webspun.org</a> 
 		</p>
-		*/}
+		
 
   	</Layout>
   	

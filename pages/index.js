@@ -6,9 +6,11 @@ export default function Home() {
   	
   	<React.Fragment>
   	<Layout page="About">
-		<p>
+  		{/* 
+		<p className="mt-4">
 		The studio of Dennis "Troy" Gilliland. I’m an user experience professional with 20+ years experience in UI design and development.
 		</p>
+		*/}
   	</Layout>
   	</React.Fragment>
 		

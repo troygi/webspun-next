@@ -18,7 +18,7 @@ export default function Home() {
 		{/* <h1>In-store kiosk UI</h1> */}
 	</div>
 	
-	<Carousel id="carouselExampleControls-2">
+	<Carousel id="carouselExampleControls-2" dataContent="Mcdonald's Template Design and Development">
 			
 		<CarouselItem activeState="active">
 			<img src="/img/portfolio/mcdonalds-kiosk.png" className="d-block carousel-img" style={{width: "90%", height: "auto"}} alt="McDonald's Kiosk Screen" />
