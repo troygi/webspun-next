@@ -49,14 +49,12 @@ export default function Scene(props) {
 	
 	function handleColorChange(e) {
 	
-		//this.setState({color: e.target.value});
-		
 		setColor(e.target.value)
 	}
 
 	return (
-	<div className="position-relative">
-		<Canvas id={props.canvasId} />
+	
+		<Canvas id={props.canvasId}>
 		
 		<DropSample menuTitle="Cube Color">
 			<div className="form-group">
@@ -92,7 +90,7 @@ export default function Scene(props) {
 		</button>
 		*/}
 		
-	</div>
+		</Canvas>
 	);
 }
 

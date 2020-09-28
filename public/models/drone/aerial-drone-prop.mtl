@@ -1,0 +1,8 @@
+# MTL written from /Library/WebServer/Documents/webspun-next/public/models/drone/aerial-drone-prop-new.obj
+newmtl Grey_032Plastic
+Kd 0.108476 0.116116 0.121182
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.04 0.04 0.04

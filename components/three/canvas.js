@@ -1,5 +1,6 @@
 const Canvas = (props) => (
 <div id={props.id + "-box"} className="canvas-box">
+	{props.children}
 	<canvas id={props.id} className="canvas"></canvas>
 	<style jsx>{`
 	.canvas-box {

@@ -6,8 +6,6 @@ function Scene(THREE, canvas) {
 	this.canvasBox = document.getElementById(canvas + "-box");
 	this.renderer = new THREE.WebGLRenderer({canvas: this.canvas, antialias: true});
 	this.renderer.setSize( window.innerWidth, window.innerHeight );
-	this.renderer.setClearColor (0xffffff, 1);
-	
 	this.renderer.setClearColor (0xE1F9FD, 1);
 	
 	window.addEventListener('resize', this.onWindowResize.bind(this), false);

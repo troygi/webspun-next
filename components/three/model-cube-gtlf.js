@@ -6,10 +6,9 @@ import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/Or
 import SceneSetup from './scene.js';
 
 function createCube(color) {
+	
 	var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-	
 	var color = new THREE.MeshLambertMaterial({color: color});
-	
 	var cube = new THREE.Mesh( geometry, color );
 	
 	return cube;
@@ -60,9 +59,7 @@ export default function Scene(props) {
 	}
 
 	return (
-	<div>
-		<Canvas id={props.canvasId} />
-	</div>
+	<Canvas id={props.canvasId} />
 	);
 }
 

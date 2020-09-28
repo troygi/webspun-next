@@ -22,7 +22,7 @@ Open [http://localhost:3010](http://localhost:3010) with your browser to see the
 Update scripts:
 
 "scripts": {
-  "build": "next build && next export"
+  "build": "next build && next export",
 }
 
 Then run:

@@ -71,9 +71,7 @@ export default function Scene(props) {
 	}
 
 	return (
-	<div>
-		<Canvas id={props.canvasId} />
-	</div>
+	<Canvas id={props.canvasId} />
 	);
 }
 
