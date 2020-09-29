@@ -16,7 +16,6 @@ function createCube(color) {
 	return cube;
 }
 
-
 export default function Scene(props) {
 	
 	var scene3D;
@@ -29,14 +28,13 @@ export default function Scene(props) {
 		controls = new OrbitControls( scene3D.camera, scene3D.canvas );
 		
 		//scene3D.camera.position.z = 3;
-		scene3D.camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 0.1, 10 );
+		//scene3D.camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 10 );
 		scene3D.camera.position.set( 0, 1.6, 2 );
-		
+		scene3D.camera.position.set( 0, 0, 0 );
 		
 		document.getElementById(props.canvasId+"-box").appendChild( VRButton.createButton( scene3D.renderer ) );
 		
-		
-		scene3D.renderer.vr.enabled = true;
+		scene3D.renderer.xr.enabled = true;
 		scene3D.lights(THREE);
 		
 		loader.load("/models/cube.glb", handle_load.bind(this));
@@ -47,12 +45,16 @@ export default function Scene(props) {
 			var color = new THREE.MeshLambertMaterial({color: "orange"});
 			
 			model.position.x = 0;
+			model.position.y = 0;
+			model.position.z = -2;
+			
+			
+			
 			model.children[1].material = color;
 			
 			scene3D.scene.add(model);
 			
-			model.position.y = 0.75;
-			model.position.z = - 5;
+			
 			
 			scene3D.renderer.setAnimationLoop( animate );
 		}
@@ -63,8 +65,8 @@ export default function Scene(props) {
 		
 		//requestAnimationFrame(animate);
 		
-		//model.rotation.x += 0.01;
-		//model.rotation.y += 0.01;				
+		model.rotation.x += 0.01;
+		model.rotation.y += 0.01;				
 			
 		controls.update();
 		scene3D.renderer.render( scene3D.scene, scene3D.camera );

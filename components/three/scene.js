@@ -1,7 +1,7 @@
 function Scene(THREE, canvas) {
 	
 	this.scene = new THREE.Scene();
-	this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );	
+	this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth/window.innerHeight, 0.1, 50 );	
 	this.canvas = document.getElementById(canvas);
 	this.canvasBox = document.getElementById(canvas + "-box");
 	this.renderer = new THREE.WebGLRenderer({canvas: this.canvas, antialias: true});
