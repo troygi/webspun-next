@@ -45,7 +45,7 @@ export default function Scene(props) {
 			var color = new THREE.MeshLambertMaterial({color: "orange"});
 			
 			model.position.x = 0;
-			model.position.y = 0;
+			model.position.y = 2;
 			model.position.z = -2;
 			
 			
