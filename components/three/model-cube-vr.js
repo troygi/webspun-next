@@ -48,13 +48,9 @@ export default function Scene(props) {
 			model.position.y = 1.5;
 			model.position.z = -3;
 			
-			
-			
 			model.children[1].material = color;
 			
 			scene3D.scene.add(model);
-			
-			
 			
 			scene3D.renderer.setAnimationLoop( animate );
 		}

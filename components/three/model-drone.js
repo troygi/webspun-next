@@ -1,134 +1,66 @@
-import React, { Component } from 'react';
-import * as THREE from 'three';
-import Canvas from './canvas';
 import { OBJLoader } from '../../node_modules/three/examples/jsm/loaders/OBJLoader';
-import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls';
-import DropSample from '../../components/navs/dropdown-drone';
-import SceneSetup from './scene.js';
 
-class Scene extends Component {
+function Drone(THREE, scene, animate, options) {
 	
-	constructor(props) {
-		super(props);
+	this.scene = scene;
+	this.drone
+	this.propFL
+	this.propFR
+	this.propBL
+	this.propBR
+	this.loader = new OBJLoader()
+	this.group = new THREE.Group()
+	this.orange = new THREE.MeshLambertMaterial({color: "rgb(95%, 51%, 09%)"})
+	this.grey = new THREE.MeshLambertMaterial({color: "rgb(40%, 42%, 43%)"})
+	
+	this.loader.load("/models/drone/aerial-drone.obj", handle_load.bind(this))
+	function handle_load(obj) {
 		
-		this.scene3D;
-		this.drone;
-		this.propFL;
-		this.propFR;
-		this.propBL;
-		this.propBR;
-		this.controls;
-		this.loader = new OBJLoader();
-		this.group = new THREE.Group();
-		this.orange = new THREE.MeshLambertMaterial({color: "rgb(95%, 51%, 09%)"});
-		this.grey = new THREE.MeshLambertMaterial({color: "rgb(40%, 42%, 43%)"});
+		this.drone = obj
+		this.group.add( this.drone )
 		
-		
-		this.state = {speed: 1};
-		
-		this.animate = this.animate.bind(this);
-		this.animateProps = this.animateProps.bind(this);
-		this.handleChange = this.handleChange.bind(this);
+		// Colors
+		this.drone.children[0].material = this.grey // Legs
+		this.drone.children[1].material = this.grey // wings
+		this.drone.children[2].material = this.orange // Body
+					
+		scene.scene.add( this.group )
 	}
 	
-	componentDidMount() {
+	this.loader.load("/models/drone/aerial-drone-prop.obj", loadProp.bind(this));
+	function loadProp(obj) {
 		
-		this.scene3D = new SceneSetup(THREE, this.props.canvasId);
-		this.scene3D.camera.position.z = .5;
-		this.scene3D.lights(THREE);
+		this.propFL = obj;
+		this.propFR = this.propFL.clone()
+		this.propBL = this.propFL.clone()
+		this.propBR = this.propFL.clone()
 		
-		this.controls = new OrbitControls( this.scene3D.camera, this.scene3D.canvas );
-	
+		this.group.add( this.propFL )
+		this.group.add( this.propFR )
+		this.group.add( this.propBL )
+		this.group.add( this.propBR )
 		
-		this.loader.load("/models/drone/aerial-drone.obj", handle_load.bind(this));
-		function handle_load(obj) {
-			
-			this.drone = obj;
-			this.drone.position.x = 0;
-			
-			// Colors
-			this.drone.children[0].material =this. grey; // Legs
-			this.drone.children[1].material = this.grey; // wings
-			this.drone.children[2].material = this.orange; // Body
-			
-			this.scene3D.scene.add(this.drone);
-			this.animate();
+		setProp(this.propFL, this.grey, {x: .165, y: 0, z: .132 })
+		setProp(this.propFR, this.grey, {x: -.165, y: 0, z: .132 })
+		setProp(this.propBL, this.grey, {x: .165, y: 0, z: -.132 })
+		setProp(this.propBR, this.grey, {x: -.165, y: 0, z: -.132 })
+		
+		scene.scene.add( this.group )
+		
+		if (options.vr == true) {
+			scene.renderer.setAnimationLoop( animate ); // VR
+		} else {
+			animate()
 		}
 		
-		
-		this.loader.load("/models/drone/aerial-drone-prop.obj", loadProp.bind(this));
-		function loadProp(obj) {
+		function setProp(prop, color, pos) {
 			
-			this.propFL = obj;
-			this.propFR = this.propFL.clone();
-			this.propBL = this.propFL.clone();
-			this.propBR = this.propFL.clone();
+			prop.position.x = pos.x
+			prop.position.y = pos.y
+			prop.position.z = pos.z
 			
-			this.group.add( this.propFL );
-			this.group.add( this.propFR );
-			this.group.add( this.propBL );
-			this.group.add( this.propBR );
-			
-			this.setProp(this.propFL, {x: .165, y: 0, z: .132 });
-			this.setProp(this.propFR, {x: -.165, y: 0, z: .132 });
-			this.setProp(this.propBL, {x: .165, y: 0, z: -.132 });
-			this.setProp(this.propBR, {x: -.165, y: 0, z: -.132 });
-			
-			this.scene3D.scene.add( this.group );
-			this.animateProps();	
-		}	
-		
-  	}
-  	
-  	setProp(prop, pos) {
-				
-		prop.position.x = pos.x;
-		prop.position.y = pos.y;
-		prop.position.z = pos.z;
-		
-		prop.children[0].material = this.grey; 
-	}
-  	
-  	animateProps() {
-			
-		requestAnimationFrame( this.animateProps );
-		
-		var speed = this.state.speed/60;
-
-		this.propFL.rotation.y += speed;
-		this.propFR.rotation.y += speed;
-		this.propBL.rotation.y += speed;
-		this.propBR.rotation.y += speed;
-	
-	}
-	
-  	animate() {
-		
-		requestAnimationFrame(this.animate);
-		//controls.update();
-		this.scene3D.renderer.render( this.scene3D.scene, this.scene3D.camera );
-	}
-	
-	handleChange(e) {
-		this.setState({speed: e.target.value});
-	}
-	
-	render () {
-	
-		var speed = this.state.speed;
-	
-		return ( 
-		<Canvas id={this.props.canvasId}> 
-			<DropSample menuTitle="Prop Speed">
-				<div className="form-group">
-					<div className="slidecontainer">
-					<input type="range" min="1" max="60" value={speed} className="slider" id="myRange" onChange={this.handleChange} />
-					<label htmlFor="myRange">Prop Speed: <span id="demo">{speed}</span></label>
-					</div>
-				</div>
-			</DropSample>
-		</Canvas> 
-		);
-	}
+			prop.children[0].material = color
+		}
+	}	
 }
-export default Scene;
+export default Drone
