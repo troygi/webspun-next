@@ -28,7 +28,11 @@ class Scene extends Component {
 		this.scene = new SceneSetup(THREE, this.canvasId);
 		this.drone = new NewDrone(THREE, this.scene, this.animate, {vr: true});
 		
-		this.drone.group.position.z = -.3;
+		this.drone.group.position.y = 1.5;
+		this.drone.group.position.z = -.6;
+		
+		this.drone.group.rotation.z = .5;
+		this.drone.group.rotation.y = .5;
 		
 		this.scene.camera.position.z = .5;
 		this.scene.lights(THREE);
