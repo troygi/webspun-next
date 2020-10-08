@@ -1,6 +1,6 @@
 import React, { useState,  useEffect} from 'react'
 import Head from 'next/head'
-import Layout from '../../components/layout-webgl-viewer'
+import Layout from '../../components/layout'
 
 var THREE = require('three');
 // import * as THREE from 'three'
@@ -62,8 +62,15 @@ export default function Home() {
 	}
 	
 	return (
-  	<>
+  	
+  	<React.Fragment>
   	<Layout page="3D Cube">
+  	
+		<div className="card-portfolio-logo">
+			<h1>3D Cube</h1>
+		</div>
+	
+		<div style={{maxWidth: "500px", height: "auto", margin: "0 auto"}}>
 		<Canvas id={canvasId}>
 			<DropSample menuTitle="Cube Color">
 				<div className="form-group">
@@ -78,16 +85,11 @@ export default function Home() {
 				</div>
 			</DropSample>
 		</Canvas>
+		</div>
+
   	</Layout>
   	
-  	<style jsx>{`
-	#viewer-iframe {
-		width: 400px;
-		height: 400px;
-		border: 1px dotted red;
-	}
-	`}</style>
-
-  	</>
+  	</React.Fragment>
+		
 	)
 }

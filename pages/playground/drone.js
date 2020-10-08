@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Head from 'next/head'
-import Layout from '../../components/layout';
+import Layout from '../../components/layout-webgl-viewer';
 import Canvas from '../../components/three/canvas';
 
 import * as THREE from 'three';
 import SceneSetup from '../../components/three/scene.js';
 import DropSample from '../../components/navs/dropdown-drone';
 import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls';
-import NewDrone from '../../components/three/model-drone.js';
+import Drone from '../../components/three/model-drone.js';
 
 class Scene extends Component {
 	constructor(props) {
@@ -23,12 +23,13 @@ class Scene extends Component {
 	componentDidMount() {
 		
 		this.scene = new SceneSetup(THREE, this.canvasId);
-		this.drone = new NewDrone(THREE, this.scene, this.animate, {vr: false});
-		
-		this.drone.group.position.z = 0;
-		
 		this.scene.camera.position.z = .6;
 		this.scene.lights(THREE);
+		
+		this.drone = new Drone(THREE, this.scene, this.animate, {vr: false});
+		//this.drone.group.position.z = 0;
+		this.drone.group.position.z = 0;
+		
 		this.controls = new OrbitControls( this.scene.camera, this.scene.canvas );
   	}
   	
@@ -57,22 +58,16 @@ class Scene extends Component {
 		return (
 			<>
 			<Layout page="Aerial Drone">
-				<div className="card-portfolio-logo">
-					<h1>Aerial Drone</h1>
-				</div>
-
-				<div style={{maxWidth: "500px", height: "auto", margin: "0 auto"}}>
-					<Canvas id={canvasId}>
-						<DropSample menuTitle="Prop Speed">
-							<div className="form-group">
-								<div className="slidecontainer">
-								<input type="range" min="1" max="60" value={speed} className="slider" id="myRange" onChange={this.handleChange} />
-								<label htmlFor="myRange">Prop Speed: <span id="demo">{speed}</span></label>
-								</div>
+				<Canvas id={canvasId}>
+					<DropSample menuTitle="Prop Speed">
+						<div className="form-group">
+							<div className="slidecontainer">
+							<input type="range" min="1" max="60" value={speed} className="slider" id="myRange" onChange={this.handleChange} />
+							<label htmlFor="myRange">Prop Speed: <span id="demo">{speed}</span></label>
 							</div>
-						</DropSample>
-					</Canvas> 
-				</div>
+						</div>
+					</DropSample>
+				</Canvas> 
 			</Layout>
 			</>
 		);

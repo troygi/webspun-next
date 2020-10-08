@@ -1,28 +1,77 @@
+import React, { useState,  useEffect} from 'react'
 import Head from 'next/head'
-import Layout from '../../components/layout';
+import Layout from '../../components/layout-webgl-viewer'
+
 var THREE = require('three');
-import Model from '../../components/three/model-cube-vr.js';
+// import * as THREE from 'three'
+import Canvas from '../../components/three/canvas'
+import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls'
+import SceneSetup from '../../components/three/scene.js'
+
+import Cube from '../../components/three/model-cube.js'
+
+// VR
+import { VRButton } from '../../node_modules/three/examples/jsm/webxr/VRButton.js'
 
 export default function Home() {
+
+	const canvasId = "canvas"
+	var scene, box, controls
+	const [color, setColor] = useState("red")
+	
+	useEffect(() => {
+		
+		box = new Cube(THREE, color)
+
+		scene = new SceneSetup(THREE, canvasId)
+		scene.camera.position.z = 3
+		scene.lights(THREE)
+		scene.scene.add(box)
+		controls = new OrbitControls( scene.camera, scene.canvas )
+		render()
+		
+		// VR
+		//document.body.appendChild( VRButton.createButton( scene.renderer ) )
+		document.getElementById("vr-controls").appendChild( VRButton.createButton( scene.renderer ) );
+		
+		scene.renderer.xr.enabled = true
+  	});
+  	
+  	function render() {
+		
+		scene.renderer.setAnimationLoop( render )
+		
+		box.rotation.x += 0.01;
+		box.rotation.y += 0.01;				
+			
+		scene.renderer.render( scene.scene, scene.camera )
+	}
+	
+	function handleColorChange(e) {
+	
+		setColor(e.target.value)
+	}
+	
 	return (
   	
-  	<React.Fragment>
+  	<>
   	<Layout page="3D Cube">
-  	
-	<div className="card-portfolio-logo">
+  		<div id="vr-controls"></div>
+  		<Canvas id={canvasId}></Canvas>
 
-		<h1>
-		3D Cube (vr)
-		</h1>
-	</div>
-	
-	<div style={{maxWidth: "500px", height: "auto", margin: "0 auto"}}>
-	<Model color="red" canvasId="canvas" modelRotate="false" />
-	</div>
-
+  		<style jsx>{`
+			#vr-controls {
+				z-index: 2;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				right: 20px;
+				height: 60px;
+			}
+			
+		`}</style>
   	</Layout>
-  	
-  	</React.Fragment>
+  	</>
 		
 	)
 }

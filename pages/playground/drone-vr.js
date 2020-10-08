@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Head from 'next/head'
-import Layout from '../../components/layout';
+import Layout from '../../components/layout-webgl-viewer';
 import Canvas from '../../components/three/canvas';
 
 import * as THREE from 'three';
 import SceneSetup from '../../components/three/scene.js';
 import DropSample from '../../components/navs/dropdown-drone';
 import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls';
-import NewDrone from '../../components/three/model-drone.js';
+import Drone from '../../components/three/model-drone.js';
 
 // VR
 import { VRButton } from '../../node_modules/three/examples/jsm/webxr/VRButton.js';
@@ -19,27 +19,44 @@ class Scene extends Component {
 		this.canvasId = "canvas";
 		this.state = {speed: 1};
 		
+		this.createGround = this.createGround.bind(this);
 		this.animate = this.animate.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+	}
+	
+	createGround(color) {
+		var geometry = new THREE.BoxGeometry( 10, .1, 10 );
+		var color = new THREE.MeshLambertMaterial({color: color});
+		var cube = new THREE.Mesh( geometry, color );
+		
+		this.scene.scene.add(cube)
+		
+		//return cube;
 	}
 	
 	componentDidMount() {
 		
 		this.scene = new SceneSetup(THREE, this.canvasId);
-		this.drone = new NewDrone(THREE, this.scene, this.animate, {vr: true});
+		this.scene.camera.position.z = .5;
+		this.scene.lights(THREE);
 		
+		this.drone = new Drone(THREE, this.scene, this.animate, {vr: true});
 		this.drone.group.position.y = 1.5;
-		this.drone.group.position.z = -.6;
+		this.drone.group.position.z = -.7;
 		
 		this.drone.group.rotation.z = .5;
 		this.drone.group.rotation.y = .5;
 		
-		this.scene.camera.position.z = .5;
-		this.scene.lights(THREE);
+		
+		this.createGround("rgb(80%, 82%, 83%)")
+		
+		
 		this.controls = new OrbitControls( this.scene.camera, this.scene.canvas );
 		
 		// VR
-		document.getElementById(this.canvasId+"-box").appendChild( VRButton.createButton( this.scene.renderer ) );
+		//document.body.appendChild( VRButton.createButton( this.scene.renderer ) );
+		document.getElementById("vr-controls").appendChild( VRButton.createButton( this.scene.renderer ) );
+		
 		this.scene.renderer.xr.enabled = true;
   	}
   	
@@ -66,23 +83,28 @@ class Scene extends Component {
 		return (
 			<>
 			<Layout page="Aerial Drone">
-				<div className="card-portfolio-logo">
-					<h1>Aerial Drone VR</h1>
-				</div>
-
-				<div style={{maxWidth: "500px", height: "auto", margin: "0 auto"}}>
-					<Canvas id={canvasId}>
-						<DropSample menuTitle="Prop Speed">
-							<div className="form-group">
-								<div className="slidecontainer">
-								<input type="range" min="1" max="60" value={speed} className="slider" id="myRange" onChange={this.handleChange} />
-								<label htmlFor="myRange">Prop Speed: <span id="demo">{speed}</span></label>
-								</div>
+				<div id="vr-controls"></div>
+				<Canvas id={canvasId}>
+					<DropSample menuTitle="Prop Speed">
+						<div className="form-group">
+							<div className="slidecontainer">
+							<input type="range" min="1" max="60" value={speed} className="slider" id="myRange" onChange={this.handleChange} />
+							<label htmlFor="myRange">Prop Speed: <span id="demo">{speed}</span></label>
 							</div>
-						</DropSample>
-					</Canvas> 
-				</div>
+						</div>
+					</DropSample>
+				</Canvas> 
 			</Layout>
+			<style jsx>{`
+			#vr-controls {
+				z-index: 2;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				right: 20px;
+				height: 60px;
+			}
+		`}</style>
 			</>
 		);
 	}

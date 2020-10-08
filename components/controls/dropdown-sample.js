@@ -3,8 +3,8 @@ const dropdown = props => (
 <style jsx>{`	
 #dropdown-sample {
 	position:absolute;
-	top:10px;
-	right:10px;
+	top:20px;
+	right:20px;
 	z-index:10
 }
 .dropdown-menu {

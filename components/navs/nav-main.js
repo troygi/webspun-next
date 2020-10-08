@@ -90,13 +90,18 @@ export default function Nav(props) {
 							</Link>
 						</li>
 						<li className="nav-item">
+							<Link href="/playground/cube-raycaster">
+								<a className={"nav-link"+playground}>3D Cube (Raycaster)</a>
+							</Link>
+						</li>
+						<li className="nav-item">
 							<Link href="/playground/cube-vr">
-								<a className={"nav-link"+playground}>3D Cube (vr)</a>
+								<a className={"nav-link"+playground}>3D Cube (VR)</a>
 							</Link>
 						</li>
 						<li className="nav-item">
 							<Link href="/playground/cube-gtlf">
-								<a className={"nav-link"+playground}>3D Cube (gtlf)</a>
+								<a className={"nav-link"+playground}>3D Cube (GTLF)</a>
 							</Link>
 						</li>
 					</ul>
