@@ -13,18 +13,22 @@ import Cube from '../../components/three/model-cube.js'
 export default function Home() {
 
 	const canvasId = "canvas"
-	var scene, cube, cube2, cubes, controls, INTERSECTED, raycast
+	var scene, cube, cube2, cubes, controls, INTERSECTED
 	const [color, setColor] = useState("blue")
 	
 	// Raycaster
-	raycast = new RayCastSetup(THREE)
+	var raycaster = new THREE.Raycaster()
+	var mouse = new THREE.Vector2(1, 1)
+	var intersects = []
 	
 	function mouseMove( event ) {
 
 		event.preventDefault()
-		raycast.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1
-		raycast.mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1
+
+		mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1
+		mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1
 	}
+	
 	
 	useEffect(() => {
 		
@@ -44,6 +48,7 @@ export default function Home() {
 		scene.lights(THREE)
 		scene.scene.add(cube, cube2)
 		
+		//controls = new OrbitControls( scene.camera, scene.canvas )
 		animate()
 		
 		// Raycaster
@@ -62,13 +67,14 @@ export default function Home() {
 			cubes[i].rotation.y += 0.01
 		}
 			
+		
 		render()	
 	}
   	
   	function render() {
-  		
-  		raycast.raycaster.setFromCamera( raycast.mouse, scene.camera );
-  		var intersects = raycast.raycaster.intersectObjects( scene.scene.children );
+  	
+  		raycaster.setFromCamera( mouse, scene.camera );
+  		var intersects = raycaster.intersectObjects( scene.scene.children );
   		
   		if ( intersects.length > 0 ) {
 
@@ -87,8 +93,8 @@ export default function Home() {
 			if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
 
 			INTERSECTED = null;
+
 		}
-		
 		
   		/*
   		if ( intersects.length > 0 ) {

@@ -24,7 +24,7 @@ export default function Home() {
 		box = new Cube(THREE, color)
 
 		scene = new SceneSetup(THREE, canvasId)
-		scene.camera.position.z = 3
+		//scene.camera.position.z = 3
 		scene.lights(THREE)
 		scene.scene.add(box)
 		controls = new OrbitControls( scene.camera, scene.canvas )
@@ -42,7 +42,11 @@ export default function Home() {
 		scene.renderer.setAnimationLoop( render )
 		
 		box.rotation.x += 0.01;
-		box.rotation.y += 0.01;				
+		box.rotation.y += 0.01;	
+		
+		box.position.z = -4
+		box.position.y = .5
+		//scene.camera.position.z = 3					
 			
 		scene.renderer.render( scene.scene, scene.camera )
 	}

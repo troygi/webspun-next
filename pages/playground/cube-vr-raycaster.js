@@ -5,16 +5,19 @@ import Layout from '../../components/layout-webgl-viewer'
 var THREE = require('three');
 // import * as THREE from 'three'
 import Canvas from '../../components/three/canvas'
+import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls'
 import SceneSetup from '../../components/three/scene.js'
 import RayCastSetup from '../../components/three/raycast.js'
 import Cube from '../../components/three/model-cube.js'
 
+// VR
+import { VRButton } from '../../node_modules/three/examples/jsm/webxr/VRButton.js'
 
 export default function Home() {
 
 	const canvasId = "canvas"
-	var scene, cube, cube2, cubes, controls, INTERSECTED, raycast
-	const [color, setColor] = useState("blue")
+	var scene, box, controls, raycast, INTERSECTED
+	const [color, setColor] = useState("red")
 	
 	// Raycaster
 	raycast = new RayCastSetup(THREE)
@@ -28,46 +31,42 @@ export default function Home() {
 	
 	useEffect(() => {
 		
-		cube = new Cube(THREE, "red");
-		cube2 = new Cube(THREE, "orange");
-		
-		cube.position.z = -5
-		cube2.position.z = -5
-		
-		cube.position.x = -.5
-		cube2.position.x = .5
-		
-		cube.scale.set(.5,.5,.5);
-		cube2.scale.set(.5,.5,.5);
-		
+		box = new Cube(THREE, color)
+
 		scene = new SceneSetup(THREE, canvasId)
+		//scene.camera.position.z = 3
 		scene.lights(THREE)
-		scene.scene.add(cube, cube2)
-		
+		scene.scene.add(box)
+		controls = new OrbitControls( scene.camera, scene.canvas )
 		animate()
+		
+		// VR
+		//document.body.appendChild( VRButton.createButton( scene.renderer ) )
+		document.getElementById("vr-controls").appendChild( VRButton.createButton( scene.renderer ) );
+		
+		scene.renderer.xr.enabled = true
 		
 		// Raycaster
 		document.addEventListener( 'mousemove', mouseMove, false );
-  	})
+  	});
+  	
   	
   	function animate() {
 		
-		requestAnimationFrame(animate)
+		scene.renderer.setAnimationLoop( animate )
 		
-		cubes = [cube, cube2]
+		box.rotation.x += 0.01;
+		box.rotation.y += 0.01;	
 		
-		for ( var i = 0; i < cubes.length; i++ ) {
+		box.position.z = -4
+		box.position.y = .5
 		
-			cubes[i].rotation.x += 0.01
-			cubes[i].rotation.y += 0.01
-		}
-			
-		render()	
+		render()
 	}
   	
   	function render() {
-  		
-  		raycast.raycaster.setFromCamera( raycast.mouse, scene.camera );
+		
+		raycast.raycaster.setFromCamera( raycast.mouse, scene.camera );
   		var intersects = raycast.raycaster.intersectObjects( scene.scene.children );
   		
   		if ( intersects.length > 0 ) {
@@ -90,20 +89,6 @@ export default function Home() {
 		}
 		
 		
-  		/*
-  		if ( intersects.length > 0 ) {
-			
-			intersects[ 0 ].object.material.color.set( "green" );
-			
-		} else {
-		
-			for ( var i = 0; i < cubes.length; i++ ) {
-			
-				cubes[ i ].material.color.set( "blue" );
-			}
-		}
-		*/
-	
 		scene.renderer.render( scene.scene, scene.camera )
 	}
 	
@@ -113,10 +98,25 @@ export default function Home() {
 	}
 	
 	return (
+  	
   	<>
   	<Layout page="3D Cube">
+  		<div id="vr-controls"></div>
   		<Canvas id={canvasId}></Canvas>
+
+  		<style jsx>{`
+			#vr-controls {
+				z-index: 2;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				right: 20px;
+				height: 60px;
+			}
+			
+		`}</style>
   	</Layout>
-  	</>	
+  	</>
+		
 	)
 }

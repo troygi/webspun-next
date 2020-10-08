@@ -34,7 +34,6 @@ Scene.prototype.lights = function(THREE) {
 	this.scene.add(light2);
 };
 
-
 Scene.prototype.onWindowResize = function() {
 
 	//var width = this.canvasBox.offsetWidth;
