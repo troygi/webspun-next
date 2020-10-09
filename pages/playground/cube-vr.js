@@ -16,17 +16,17 @@ import { VRButton } from '../../node_modules/three/examples/jsm/webxr/VRButton.j
 export default function Home() {
 
 	const canvasId = "canvas"
-	var scene, box, controls
+	var scene, cube, controls
 	const [color, setColor] = useState("red")
 	
 	useEffect(() => {
 		
-		box = new Cube(THREE, color)
+		cube = new Cube(THREE, color)
 
 		scene = new SceneSetup(THREE, canvasId)
 		//scene.camera.position.z = 3
 		scene.lights(THREE)
-		scene.scene.add(box)
+		scene.scene.add(cube)
 		controls = new OrbitControls( scene.camera, scene.canvas )
 		render()
 		
@@ -41,11 +41,11 @@ export default function Home() {
 		
 		scene.renderer.setAnimationLoop( render )
 		
-		box.rotation.x += 0.01;
-		box.rotation.y += 0.01;	
+		cube.rotation.x += 0.01;
+		cube.rotation.y += 0.01;	
 		
-		box.position.z = -4
-		box.position.y = .5
+		cube.position.z = -4
+		cube.position.y = .5
 		//scene.camera.position.z = 3					
 			
 		scene.renderer.render( scene.scene, scene.camera )
