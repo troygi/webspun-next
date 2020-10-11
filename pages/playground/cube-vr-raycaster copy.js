@@ -18,10 +18,12 @@ import { BoxLineGeometry } from '../../node_modules/three/examples/jsm/geometrie
 export default function Home() {
 
 	const canvasId = "canvas"
-	var scene, cube, controls, INTERSECTED, raycaster
+	var scene, cube, controls, raycast, INTERSECTED, raycaster
 	const [color, setColor] = useState("red")	
 	
-
+	// Raycaster
+	//var raycast = new RayCastSetup(THREE)
+	
 	// XR Controller
 	var controller, controllerGrip, controllerModelFactory
 	var tempMatrix = new THREE.Matrix4();
@@ -51,6 +53,13 @@ export default function Home() {
 
 	}
 	
+	
+	function mouseMove( event ) {
+
+		event.preventDefault()
+		raycast.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1
+		raycast.mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1
+	}
 	
 	useEffect(() => {
 	

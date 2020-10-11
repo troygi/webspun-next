@@ -13,6 +13,8 @@ function Drone(THREE, scene, animate, options) {
 	this.orange = new THREE.MeshLambertMaterial({color: "rgb(95%, 51%, 09%)"})
 	this.grey = new THREE.MeshLambertMaterial({color: "rgb(40%, 42%, 43%)"})
 	
+//	this.red = new THREE.MeshLambertMaterial({color: "rgb(255%, 0%, 0%)"})
+	
 	this.loader.load("/models/drone/aerial-drone.obj", handle_load.bind(this))
 	function handle_load(obj) {
 		
@@ -23,6 +25,11 @@ function Drone(THREE, scene, animate, options) {
 		this.drone.children[0].material = this.grey // Legs
 		this.drone.children[1].material = this.grey // wings
 		this.drone.children[2].material = this.orange // Body
+		
+		//this.drone.children[0].material.color.set("rgb(255, 0, 0)");
+		
+		
+		//this.drone.children[2].material = new THREE.MeshLambertMaterial({color: "rgb(255%, 0%, 0%)"})// Body
 					
 		scene.scene.add( this.group )
 	}
@@ -44,6 +51,7 @@ function Drone(THREE, scene, animate, options) {
 		setProp(this.propFR, this.grey, {x: -.165, y: 0, z: .132 })
 		setProp(this.propBL, this.grey, {x: .165, y: 0, z: -.132 })
 		setProp(this.propBR, this.grey, {x: -.165, y: 0, z: -.132 })
+		
 		
 		scene.scene.add( this.group )
 		

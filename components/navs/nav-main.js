@@ -85,6 +85,11 @@ export default function Nav(props) {
 							</Link>
 						</li>
 						<li className="nav-item">
+							<Link href="/playground/drone-vr-raycaster">
+								<a className={"nav-link"+playground}>Aerial Drone (VR - Raycaster)</a>
+							</Link>
+						</li>
+						<li className="nav-item">
 							<Link href="/playground/cube">
 								<a className={"nav-link"+playground}>3D Cube</a>
 							</Link>

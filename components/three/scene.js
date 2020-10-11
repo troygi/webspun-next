@@ -8,7 +8,9 @@ function Scene(THREE, canvas) {
 	this.renderer = new THREE.WebGLRenderer({canvas: this.canvas, antialias: true});
 	this.renderer.setSize( window.innerWidth, window.innerHeight );
 	//this.renderer.setClearColor (0xE1F9FD, 1);
-	this.renderer.setClearColor (0x505050, 1);
+	//this.renderer.setClearColor (0x505050, 1);
+	
+	this.renderer.setClearColor (0xffffff, 1);
 	
 	
 	
