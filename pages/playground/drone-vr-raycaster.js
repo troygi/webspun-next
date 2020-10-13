@@ -30,6 +30,8 @@ class Scene extends Component {
 		this.tempMatrix = new THREE.Matrix4()
 		this.INTERSECTED
 		this.cube
+		this.counter = 0
+		this.step = 1
 		
 		this.createGround = this.createGround.bind(this);
 		this.animate = this.animate.bind(this);
@@ -86,10 +88,14 @@ class Scene extends Component {
 		this.raycaster = new THREE.Raycaster();
 		
 		this.drone = new Drone(THREE, this.scene, this.animate, {vr: true});
-		this.drone.group.position.y = 1.5;
-		this.drone.group.position.z = -1.5;
 		
-		this.drone.group.rotation.z = .5;
+		this.drone.group.position.y = 1.5;
+		
+		// Position 1
+		this.drone.group.position.x = 0;
+		this.drone.group.position.z = -2.5;
+		
+		this.drone.group.rotation.z = .3;
 		this.drone.group.rotation.y = .5;
 		
 		this.createGround("rgb(80%, 82%, 83%)")
@@ -133,12 +139,14 @@ class Scene extends Component {
   	
   		this.scene.renderer.setAnimationLoop( this.animate )
   		  		
-  		var speed = this.state.speed/60;
+  		//var speed = this.state.speed/60;
+  		
+  		var speed = 30/60;
   		
   		this.cube.rotation.x += 0.01;
 		this.cube.rotation.y += 0.01;	
 		
-		//this.cube.position.x = 1
+		this.cube.position.x = 2
 		this.cube.position.z = -5
 		this.cube.position.y = .9
   		
@@ -147,7 +155,55 @@ class Scene extends Component {
 		this.drone.propBL.rotation.y += speed;
 		this.drone.propBR.rotation.y += speed;
 		
-		//this.drone.propFL.rotation.y += 50;
+		// Counter
+		if (this.counter < 1201) {
+			
+			this.counter+= 1
+			
+			// Position 12 to 3 o'clock
+			if ((this.counter > 0) && (this.counter < 300)) {
+				
+				this.drone.group.position.x += 0.01;
+				this.drone.group.position.z += 0.01;
+			}
+			
+			
+			// Position 3 to 6 o'clock
+			if ((this.counter > 301) && (this.counter < 600)) {
+				
+				this.drone.group.position.x += -0.01;
+				this.drone.group.position.z += 0.01;
+			}
+			
+			
+			// Position 6 to 9 o'clock
+			if ((this.counter > 601) && (this.counter < 900)) {
+			
+				this.drone.group.position.x += -0.01;
+				this.drone.group.position.z += -0.01;
+			}
+			
+			// Position 9 to 12 o'clock
+			if ((this.counter > 901) && (this.counter < 1200)) {
+			
+				this.drone.group.position.x += 0.01;
+				this.drone.group.position.z += -0.01;
+			}
+		
+		} else { this.counter = 0 }
+		
+		
+		console.log(this.counter)
+		
+		
+		/*
+		if (this.drone.group.position.x < 1.5) {
+			
+			this.drone.group.position.x += 0.01;
+			this.drone.group.position.z += 0.01;
+		}
+		*/
+		
 		
 		this.renderIt();
 	}
