@@ -12,8 +12,6 @@ function Scene(THREE, canvas) {
 	
 	this.renderer.setClearColor (0xffffff, 1);
 	
-	
-	
 	window.addEventListener('resize', this.onWindowResize.bind(this), false);
 	this.onWindowResize();
 }
@@ -40,9 +38,7 @@ Scene.prototype.lights = function(THREE) {
 };
 
 Scene.prototype.onWindowResize = function() {
-
-	//var width = this.canvasBox.offsetWidth;
-			
+		
 	this.camera.aspect = window.innerWidth / window.innerHeight;
 	this.camera.updateProjectionMatrix();
 	this.renderer.setSize( window.innerWidth, window.innerHeight );

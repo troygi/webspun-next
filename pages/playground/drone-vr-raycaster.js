@@ -9,7 +9,6 @@ import SceneSetup from '../../components/three/scene.js';
 import DropSample from '../../components/navs/dropdown-drone';
 import Drone from '../../components/three/model-drone.js';
 
-
 // XR
 import { VRButton } from '../../node_modules/three/examples/jsm/webxr/VRButton.js'
 import { XRControllerModelFactory } from '../../node_modules/three/examples/jsm/webxr/XRControllerModelFactory.js'
@@ -36,13 +35,10 @@ class Scene extends Component {
 		this.createGround = this.createGround.bind(this);
 		this.animate = this.animate.bind(this);
 		this.renderIt = this.renderIt.bind(this);
-		this.handleChange = this.handleChange.bind(this);
 		this.buildController = this.buildController.bind(this);
 	}
 	
 	// XR Controller
-	
-
 	buildController( data ) {
 	
 		switch ( data.targetRayMode ) {
@@ -66,7 +62,6 @@ class Scene extends Component {
 
 	}
 
-	
 	createGround(color) {
 		var geometry = new THREE.BoxGeometry( 10, .1, 10 );
 		var color = new THREE.MeshLambertMaterial({color: color});
@@ -110,11 +105,8 @@ class Scene extends Component {
 		this.controller.addEventListener( 'connected', function ( event ) {
 
 			this.add( 
-			
 			//this.buildController( event.data ) 
-			
 			tester( event.data ) 
-			
 			);
 		} );
 		this.controller.addEventListener( 'disconnected', function () {
@@ -128,7 +120,6 @@ class Scene extends Component {
 		this.controllerGrip = this.scene.renderer.xr.getControllerGrip( 0 );
 		this.controllerGrip.add( this.controllerModelFactory.createControllerModel( this.controllerGrip ) );
 		this.scene.scene.add( this.controllerGrip );
-		
 		
 		// VR
 		document.getElementById("vr-controls").appendChild( VRButton.createButton( this.scene.renderer ) );
@@ -193,16 +184,7 @@ class Scene extends Component {
 		} else { this.counter = 0 }
 		
 		
-		console.log(this.counter)
-		
-		
-		/*
-		if (this.drone.group.position.x < 1.5) {
-			
-			this.drone.group.position.x += 0.01;
-			this.drone.group.position.z += 0.01;
-		}
-		*/
+		//console.log(this.counter)
 		
 		
 		this.renderIt();
@@ -251,10 +233,6 @@ class Scene extends Component {
 		this.scene.renderer.render( this.scene.scene, this.scene.camera );
 	}
 	
-	handleChange(e) {
-		this.setState({speed: e.target.value});
-	}
-	
 	render () {
 		var canvasId = this.canvasId;
 		var speed = this.state.speed;
@@ -263,16 +241,7 @@ class Scene extends Component {
 			<>
 			<Layout page="Aerial Drone">
 				<div id="vr-controls"></div>
-				<Canvas id={canvasId}>
-					<DropSample menuTitle="Prop Speed">
-						<div className="form-group">
-							<div className="slidecontainer">
-							<input type="range" min="1" max="60" value={speed} className="slider" id="myRange" onChange={this.handleChange} />
-							<label htmlFor="myRange">Prop Speed: <span id="demo">{speed}</span></label>
-							</div>
-						</div>
-					</DropSample>
-				</Canvas> 
+				<Canvas id={canvasId}></Canvas> 
 			</Layout>
 			<style jsx>{`
 			#vr-controls {

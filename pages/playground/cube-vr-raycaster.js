@@ -77,9 +77,7 @@ export default function Home() {
 		} );
 		scene.scene.add( controller );
 		
-		
 		controllerModelFactory = new XRControllerModelFactory();
-		
 		
 		controllerGrip = scene.renderer.xr.getControllerGrip( 0 );
 		controllerGrip.add( controllerModelFactory.createControllerModel( controllerGrip ) );

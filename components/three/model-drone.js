@@ -1,7 +1,6 @@
 import { OBJLoader } from '../../node_modules/three/examples/jsm/loaders/OBJLoader';
 
 function Drone(THREE, scene, animate, options) {
-	
 	this.scene = scene;
 	this.drone
 	this.propFL
@@ -12,8 +11,6 @@ function Drone(THREE, scene, animate, options) {
 	this.group = new THREE.Group()
 	this.orange = new THREE.MeshLambertMaterial({color: "rgb(95%, 51%, 09%)"})
 	this.grey = new THREE.MeshLambertMaterial({color: "rgb(40%, 42%, 43%)"})
-	
-//	this.red = new THREE.MeshLambertMaterial({color: "rgb(255%, 0%, 0%)"})
 	
 	this.loader.load("/models/drone/aerial-drone.obj", handle_load.bind(this))
 	function handle_load(obj) {
@@ -26,12 +23,7 @@ function Drone(THREE, scene, animate, options) {
 		this.drone.children[1].material = this.grey // wings
 		this.drone.children[2].material = this.orange // Body
 		
-		//this.drone.children[0].material.color.set("rgb(255, 0, 0)");
-		
-		
-		//this.drone.children[2].material = new THREE.MeshLambertMaterial({color: "rgb(255%, 0%, 0%)"})// Body
-					
-		scene.scene.add( this.group )
+		this.scene.scene.add(this.group)
 	}
 	
 	this.loader.load("/models/drone/aerial-drone-prop.obj", loadProp.bind(this));
@@ -52,11 +44,10 @@ function Drone(THREE, scene, animate, options) {
 		setProp(this.propBL, this.grey, {x: .165, y: 0, z: -.132 })
 		setProp(this.propBR, this.grey, {x: -.165, y: 0, z: -.132 })
 		
-		
-		scene.scene.add( this.group )
+		this.scene.scene.add( this.group )
 		
 		if (options.vr == true) {
-			scene.renderer.setAnimationLoop( animate ); // VR
+			this.scene.renderer.setAnimationLoop( animate ); // VR
 		} else {
 			animate()
 		}
@@ -69,6 +60,7 @@ function Drone(THREE, scene, animate, options) {
 			
 			prop.children[0].material = color
 		}
-	}	
+	}
+		
 }
 export default Drone
