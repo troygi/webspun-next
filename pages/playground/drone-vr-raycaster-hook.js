@@ -18,21 +18,10 @@ export default function Scene() {
 
 	const canvasId = "canvas"
 	var scene3D, cube, drone, moveDrone
-	const [color, setColor] = useState("red")
-	//const [speed, setSpeed] = useState(.15)
 	
 	var speed = .03
 	var propSpeed = .15
-	
 	var angle = 0
-	
-	// 90 var angle = 1.5708
-	// 45 var angle = 0.785398
-	// 180 var angle = 3.14159
-	// 225 var angle = 3.92699
-	// 270 var angle = 4.71239
-	// 315 var angle = 5.49779
-	// 360 var angle = 6.28319
 	
 	var moveDrone = false
 	var rotateDrone = false
@@ -40,19 +29,28 @@ export default function Scene() {
 	var controllerModelFactory = new XRControllerModelFactory()
 	
 	useEffect(() => {
+	
+		var listener = new THREE.AudioListener();
 		
 		scene3D = new SceneSetup(THREE, canvasId)
-		//scene.camera.position.z = 3
 		scene3D.lights(THREE)
-		//scene3D.scene.add(cube)
 		
-		// Add cube
-		cube = new Cube(THREE, color)
-		scene3D.scene.add(cube)
+		// Audio
+		scene3D.camera.add( listener )
+		var sound = new THREE.Audio( listener )
+		
+		var audioLoader = new THREE.AudioLoader();
+			audioLoader.load( '/sounds/drone-flying.mp3', function( buffer ) {
+			sound.setBuffer( buffer );
+			sound.setLoop( true );
+			sound.setVolume( 0.5 );
+			sound.play();
+		});
 		
 		// Add ground
-		createGround("rgb(80%, 82%, 83%)")
-		
+		createGround("rgb(23%, 80%, 22%)")	
+		scene3D.renderer.setClearColor (0x63B5E6, 1);
+
 		// Add drone
 		drone = new Drone(THREE, scene3D, animate, {vr: true});
 		
@@ -60,28 +58,24 @@ export default function Scene() {
 		drone.group.position.y = 1.5
 		drone.group.position.z = -2.5
 		drone.group.rotation.y = angle
-		
-		//drone.group.rotateY(THREE.Math.degToRad(50)) //.5
-		
-		
+
 		// XR Controller 1
-		var controller1 = scene3D.renderer.xr.getController( 0 )
+		const controller1 = scene3D.renderer.xr.getController( 0 )
 		controller1.addEventListener( 'selectstart', onSelectStartMove )
 		controller1.addEventListener( 'selectend', onSelectEndMove )
 		scene3D.scene.add(controller1)
 		
-		var controllerGrip1 = scene3D.renderer.xr.getControllerGrip( 0 )
+		const controllerGrip1 = scene3D.renderer.xr.getControllerGrip( 0 )
 		controllerGrip1.add( controllerModelFactory.createControllerModel( controllerGrip1 ) )
 		scene3D.scene.add( controllerGrip1 )
 		
-		
 		// XR Controller 2
-		var controller2 = scene3D.renderer.xr.getController( 1 )
+		const controller2 = scene3D.renderer.xr.getController( 1 )
 		controller2.addEventListener( 'selectstart', onSelectStartRotate )
 		controller2.addEventListener( 'selectend', onSelectEndRotate )
 		scene3D.scene.add(controller2)
 		
-		var controllerGrip2 = scene3D.renderer.xr.getControllerGrip( 1 )
+		const controllerGrip2 = scene3D.renderer.xr.getControllerGrip( 1 )
 		controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) )
 		scene3D.scene.add( controllerGrip2 )
 		
@@ -90,57 +84,22 @@ export default function Scene() {
 		scene3D.renderer.xr.enabled = true
   	});
   	
-  	// XR Controller
-  	function buildController( data ) {
   	
-  	}
-  	
-  	function onSelectStartMove() {
-
-		cube.material.color.set( "blue" )
-		
-		propSpeed = .50
-		moveDrone = true
-	}
+  	function onSelectStartMove() { propSpeed = .50; moveDrone = true }
+	function onSelectEndMove() { propSpeed = .15; moveDrone = false }
 	
-
-	function onSelectEndMove() {
-	
-		cube.material.color.set( "red" );
-		
-		propSpeed = .15
-		moveDrone = false
-	}
-	
-	function onSelectStartRotate() {
-
-		rotateDrone = true
-	}
-	
-
-	function onSelectEndRotate() {
-	
-		rotateDrone = false
-	}
+	function onSelectStartRotate() { rotateDrone = true }
+	function onSelectEndRotate() { rotateDrone = false }
   	
   	function createGround(color) {
 		var geometry = new THREE.BoxGeometry( 10, .1, 10 )
 		var color = new THREE.MeshLambertMaterial({color: color})
 		var cube = new THREE.Mesh( geometry, color )
 		
-		//scene3D.scene.add(cube)
+		scene3D.scene.add(cube)
 	}
   	
   	function animate() {
-		
-		/*
-		cube.rotation.x += 0.01
-		cube.rotation.y += 0.01	
-		
-		cube.position.x = 2
-		cube.position.z = -5
-		cube.position.y = .9
-		*/
 		
 		// Animate props
 		drone.propFL.rotation.y += propSpeed;
@@ -150,15 +109,8 @@ export default function Scene() {
 		
 		if (moveDrone == true) {
 			
-			//drone.group.position.x += 0.01
-			//drone.group.position.z += 0.01
-			
 			drone.group.position.x += speed * Math.sin(angle)
 			drone.group.position.z += speed * Math.cos(angle)
-			
-			
-			//numberX += speed * Math.sin(angle)
-			//numberY -= speed * Math.sin(angle)
 		}
 		
 		if (rotateDrone == true) {
@@ -166,10 +118,8 @@ export default function Scene() {
 			angle = drone.group.rotation.y += 0.01
 		}
 		
-	
 		render()
 	}
-	
 	
   	function render() {
 				
