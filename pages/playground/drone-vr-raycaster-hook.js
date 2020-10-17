@@ -23,8 +23,10 @@ export default function Scene() {
 	var propSpeed = .15
 	var angle = 0
 	
-	var moveDrone = false
-	var rotateDrone = false
+	var moveDroneForward = false
+	var moveDroneBackward = false
+	var rotateDroneLeft = false
+	var rotateDroneRight = false
 	
 	var controllerModelFactory = new XRControllerModelFactory()
 	
@@ -59,25 +61,33 @@ export default function Scene() {
 		drone.group.position.z = -2.5
 		drone.group.rotation.y = angle
 
-		// XR Controller 1
-		const controller1 = scene3D.renderer.xr.getController( 0 )
-		controller1.addEventListener( 'selectstart', onSelectStartMove )
-		controller1.addEventListener( 'selectend', onSelectEndMove )
-		scene3D.scene.add(controller1)
+		// XR Controller - Right
+		const controllerRight = scene3D.renderer.xr.getController( 0 )
+		controllerRight.addEventListener( 'selectstart', onSelectStartMoveForward )
+		controllerRight.addEventListener( 'selectend', onSelectEndMove )
 		
-		const controllerGrip1 = scene3D.renderer.xr.getControllerGrip( 0 )
-		controllerGrip1.add( controllerModelFactory.createControllerModel( controllerGrip1 ) )
-		scene3D.scene.add( controllerGrip1 )
+		controllerRight.addEventListener( 'squeezestart', onSqueezeStartRotateRight )
+		controllerRight.addEventListener( 'squeezeend', onSqueezeEndRotate )
 		
-		// XR Controller 2
-		const controller2 = scene3D.renderer.xr.getController( 1 )
-		controller2.addEventListener( 'selectstart', onSelectStartRotate )
-		controller2.addEventListener( 'selectend', onSelectEndRotate )
-		scene3D.scene.add(controller2)
+		scene3D.scene.add(controllerRight)
 		
-		const controllerGrip2 = scene3D.renderer.xr.getControllerGrip( 1 )
-		controllerGrip2.add( controllerModelFactory.createControllerModel( controllerGrip2 ) )
-		scene3D.scene.add( controllerGrip2 )
+		const controllerGripRight = scene3D.renderer.xr.getControllerGrip( 0 )
+		controllerGripRight.add( controllerModelFactory.createControllerModel( controllerGripRight ) )
+		scene3D.scene.add( controllerGripRight )
+		
+		// XR Controller - Left
+		const controllerLeft = scene3D.renderer.xr.getController( 1 )
+		controllerLeft.addEventListener( 'selectstart', onSelectStartMoveBackward )
+		controllerLeft.addEventListener( 'selectend', onSelectEndMove )
+		
+		controllerLeft.addEventListener( 'squeezestart', onSqueezeStartRotateLeft )
+		controllerLeft.addEventListener( 'squeezeend', onSqueezeEndRotate )
+		
+		scene3D.scene.add(controllerLeft)
+		
+		const controllerGripLeft = scene3D.renderer.xr.getControllerGrip( 1 )
+		controllerGripLeft.add( controllerModelFactory.createControllerModel( controllerGripLeft ) )
+		scene3D.scene.add( controllerGripLeft )
 		
 		// XR
 		document.getElementById("vr-controls").appendChild( VRButton.createButton( scene3D.renderer ) )
@@ -85,11 +95,13 @@ export default function Scene() {
   	});
   	
   	
-  	function onSelectStartMove() { propSpeed = .50; moveDrone = true }
-	function onSelectEndMove() { propSpeed = .15; moveDrone = false }
+  	function onSelectStartMoveForward() { propSpeed = .50; moveDroneForward = true }
+  	function onSelectStartMoveBackward() { propSpeed = .50; moveDroneBackward = true }
+	function onSelectEndMove() { propSpeed = .15; moveDroneForward = false; moveDroneBackward = false }
 	
-	function onSelectStartRotate() { rotateDrone = true }
-	function onSelectEndRotate() { rotateDrone = false }
+	function onSqueezeStartRotateLeft() { rotateDroneLeft = true }
+	function onSqueezeStartRotateRight() { rotateDroneRight = true }
+	function onSqueezeEndRotate() { rotateDroneLeft = false; rotateDroneRight = false  }
   	
   	function createGround(color) {
 		var geometry = new THREE.BoxGeometry( 10, .1, 10 )
@@ -107,13 +119,24 @@ export default function Scene() {
 		drone.propBL.rotation.y += propSpeed;
 		drone.propBR.rotation.y += propSpeed;
 		
-		if (moveDrone == true) {
+		if (moveDroneForward == true) {
 			
 			drone.group.position.x += speed * Math.sin(angle)
 			drone.group.position.z += speed * Math.cos(angle)
 		}
 		
-		if (rotateDrone == true) {
+		if (moveDroneBackward == true) {
+			
+			drone.group.position.x -= speed * Math.sin(angle)
+			drone.group.position.z -= speed * Math.cos(angle)
+		}
+		
+		if (rotateDroneLeft == true) {
+			
+			angle = drone.group.rotation.y -= 0.01
+		}
+		
+		if (rotateDroneRight == true) {
 			
 			angle = drone.group.rotation.y += 0.01
 		}
