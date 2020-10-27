@@ -75,6 +75,11 @@ export default function Nav(props) {
 				<div className="bg-dark p-4">
 					<ul className="nav flex-column">
 						<li className="nav-item">
+							<Link href="/icarus">
+								<a className={"nav-link"+playground}>Icarus</a>
+							</Link>
+						</li>
+						<li className="nav-item">
 							<Link href="/playground/drone">
 								<a className={"nav-link"+playground}>Aerial Drone</a>
 							</Link>

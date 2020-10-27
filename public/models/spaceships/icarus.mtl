@@ -1,0 +1,29 @@
+# MTL written from /Library/WebServer/Documents/webspun-next/public/models/spaceships/icarus.obj
+newmtl Cap_032color
+Kd 0.669865 0.387642 0
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.04 0.04 0.04
+newmtl Default
+Kd 0.48 0.48 0.48
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.04 0.04 0.04
+newmtl Fuselage_032Green
+Kd 0.00666691 0.0366425 0.00757226
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.04 0.04 0.04
+newmtl Windows
+Kd 0.0323479 0.0340665 0.0366425
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.04 0.04 0.04
