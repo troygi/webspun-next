@@ -40,6 +40,20 @@ export default function Scene() {
 
 		// Add drone
 		drone = new Drone(THREE, scene3D, settings, animate, {vr: true});
+		
+		// Skybox
+		var envMap = new THREE.CubeTextureLoader()
+			.setPath('/img/skybox/space-red/')
+			
+			.load([
+				"bkg3_left2.png", 
+				"bkg3_right1.png", 
+				"bkg3_top3.png", 
+				"bkg3_bottom4.png", 
+				"bkg3_back6.png", 
+				"bkg3_front5.png" 
+			]);
+			scene3D.scene.background = envMap;
 	
 	
 		// XR Controller - Right

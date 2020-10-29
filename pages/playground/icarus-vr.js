@@ -37,33 +37,6 @@ export default function Scene() {
 		//createGround("rgb(23%, 80%, 22%)")	
 		scene3D.renderer.setClearColor (0x63B5E6, 1);
 		
-		/*
-		.setPath('/img/skybox/Yokohama2/')
-			
-			.load([
-				"posx.jpg", 
-				"negx.jpg", 
-				"posy.jpg", 
-				"negy.jpg", 
-				"posz.jpg", 
-				"negz.jpg" 
-			]);
-		*/	
-		
-		
-		/*
-			.load([
-				"bkg3_right1.png", 
-				"bkg3_left2.png", 
-				"bkg3_top3.png", 
-				"bkg3_bottom4.png", 
-				"bkg3_back6.png", 
-				"bkg3_front5.png" 
-			]);
-			*/
-			
-			
-		
 		// Skybox
 		var envMap = new THREE.CubeTextureLoader()
 			.setPath('/img/skybox/space-red/')
@@ -76,18 +49,6 @@ export default function Scene() {
 				"bkg3_back6.png", 
 				"bkg3_front5.png" 
 			]);
-			
-			/*
-			.load([
-				"bkg3_front5.png", 
-				"bkg3_back6.png", 
-				"bkg3_top3.png", 
-				"bkg3_bottom4.png", 
-				"bkg3_right1.png", 
-				"bkg3_left2.png" 
-			]);
-			*/
-			
 			scene3D.scene.background = envMap;
 		
 
