@@ -25,6 +25,23 @@ export default function Home() {
 		scene.lights(THREE)
 		scene.scene.add(cube)
 		
+		
+		// Skybox
+		var envMap = new THREE.CubeTextureLoader()
+			.setPath('/img/skybox/Yokohama2/')
+			
+			.load([
+				"posx.jpg", 
+				"negx.jpg", 
+				"posy.jpg", 
+				"negy.jpg", 
+				"posz.jpg", 
+				"negz.jpg" 
+			]);
+			
+			scene.scene.background = envMap;
+		
+	
 		controls = new OrbitControls( scene.camera, scene.canvas )
 		render()
 		

@@ -80,48 +80,18 @@ export default function Nav(props) {
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link href="/playground/drone">
+							<Link href="/aerial-drone">
 								<a className={"nav-link"+playground}>Aerial Drone</a>
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link href="/playground/drone-vr">
-								<a className={"nav-link"+playground}>Aerial Drone (VR)</a>
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link href="/playground/drone-vr-raycaster">
-								<a className={"nav-link"+playground}>Aerial Drone (VR - Raycaster)</a>
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link href="/playground/drone-vr-raycaster-hook">
-								<a className={"nav-link"+playground}>Aerial Drone (VR - Raycaster - hook)</a>
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link href="/playground/cube">
+							<Link href="/cube">
 								<a className={"nav-link"+playground}>3D Cube</a>
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link href="/playground/cube-raycaster">
-								<a className={"nav-link"+playground}>3D Cube (Raycaster)</a>
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link href="/playground/cube-vr">
-								<a className={"nav-link"+playground}>3D Cube (VR)</a>
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link href="/playground/cube-vr-raycaster">
-								<a className={"nav-link"+playground}>3D Cube (VR - Raycaster)</a>
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link href="/playground/cube-gtlf">
-								<a className={"nav-link"+playground}>3D Cube (GTLF)</a>
+							<Link href="/playground/skybox">
+								<a className={"nav-link"+playground}>Skybox</a>
 							</Link>
 						</li>
 					</ul>

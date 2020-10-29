@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Layout from '../../components/layout-webgl-viewer'
 
 var THREE = require('three');
-// import * as THREE from 'three'
 import Canvas from '../../components/three/canvas'
 import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls'
 import SceneSetup from '../../components/three/scene.js'
@@ -22,6 +21,7 @@ export default function Home() {
 	var mouse = new THREE.Vector2(1, 1);
 	var intersects = [];
 	
+	/* Raycaster
 	function mouseMove( event ) {
 
 		event.preventDefault();
@@ -29,6 +29,7 @@ export default function Home() {
 		mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 		mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 	}
+	*/
 	
 	
 	useEffect(() => {
@@ -43,7 +44,7 @@ export default function Home() {
 		animate()
 		
 		// Raycaster
-		document.addEventListener( 'mousemove', mouseMove, false );
+		//document.addEventListener( 'mousemove', mouseMove, false );
   	})
   	
   	function animate() {
@@ -74,6 +75,7 @@ export default function Home() {
 						<option value="blue">blue</option>
 						<option value="yellow">yellow</option>
 						<option value="orange">orange</option>
+						<option value="crate">Crate</option>
 					</select>
 				</div>
 			</DropSample>

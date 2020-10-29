@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Head from 'next/head'
-import Layout from '../../components/layout-webgl-viewer';
-import Canvas from '../../components/three/canvas';
+import Layout from '../../components/layout-webgl-viewer'
+import Canvas from '../../components/three/canvas'
 
-import * as THREE from 'three';
-import SceneSetup from '../../components/three/scene.js';
-import DropSample from '../../components/navs/dropdown-drone';
-import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls';
-import Drone from '../../components/three/model-drone.js';
+import * as THREE from 'three'
+import SceneSetup from '../../components/three/scene.js'
+import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls'
+import DropSample from '../../components/navs/dropdown-drone'
+import Drone from '../../components/three/model-drone.js'
 
 // VR
 import { VRButton } from '../../node_modules/three/examples/jsm/webxr/VRButton.js';
@@ -30,8 +30,6 @@ class Scene extends Component {
 		var cube = new THREE.Mesh( geometry, color );
 		
 		this.scene.scene.add(cube)
-		
-		//return cube;
 	}
 	
 	componentDidMount() {
@@ -54,7 +52,6 @@ class Scene extends Component {
 		this.controls = new OrbitControls( this.scene.camera, this.scene.canvas );
 		
 		// VR
-		//document.body.appendChild( VRButton.createButton( this.scene.renderer ) );
 		document.getElementById("vr-controls").appendChild( VRButton.createButton( this.scene.renderer ) );
 		
 		this.scene.renderer.xr.enabled = true;
