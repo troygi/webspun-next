@@ -22,12 +22,12 @@ export default function Home() {
 				
 					<ul className="list">
 						<li>
-							<Link href="/playground/drone">
+							<Link href="/playground/aerial-drone">
 								<a>Aerial Drone</a>
 							</Link>
 						</li>
 						<li>
-							<Link href="/playground/drone-vr">
+							<Link href="/playground/aerial-drone-vr">
 								<a>Aerial Drone (VR)</a>
 							</Link>
 						</li>
