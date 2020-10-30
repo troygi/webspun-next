@@ -5,7 +5,7 @@ export default function Home() {
 	return (
   	
   	<React.Fragment>
-  	<Layout page="About">
+  	<Layout page="Home">
   		{/* 
 		<p className="mt-4">
 		The studio of Dennis "Troy" Gilliland. I’m an user experience professional with 20+ years experience in UI design and development.

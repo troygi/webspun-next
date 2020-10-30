@@ -75,23 +75,8 @@ export default function Nav(props) {
 				<div className="bg-dark p-4">
 					<ul className="nav flex-column">
 						<li className="nav-item">
-							<Link href="/icarus">
-								<a className={"nav-link"+playground}>Icarus</a>
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link href="/aerial-drone">
-								<a className={"nav-link"+playground}>Aerial Drone</a>
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link href="/cube">
-								<a className={"nav-link"+playground}>3D Cube</a>
-							</Link>
-						</li>
-						<li className="nav-item">
-							<Link href="/playground/skybox">
-								<a className={"nav-link"+playground}>Skybox</a>
+							<Link href="/playground">
+								<a className={"nav-link"+playground}>Playground Overview</a>
 							</Link>
 						</li>
 					</ul>
@@ -103,22 +88,24 @@ export default function Nav(props) {
 					<li className="nav-item mr-2">
 						<a className={"nav-link"+portfolio} data-toggle="collapse" data-target="#navPortfolio" aria-controls="navPortfolio" aria-expanded="false" aria-label="Toggle navigation">Portfolio</a>
 					</li>
+					
+					{/* 
 					<li className="nav-item mr-2">
 						<a className={"nav-link"+playground} data-toggle="collapse" data-target="#navPlayGround" aria-controls="navPlayGround" aria-expanded="false" aria-label="Toggle navigation">Playground</a>
 					</li>
-					{/* 
+					
 					<li className="nav-item mr-2">
 						<Link href="/portfolio/flipboard">
 							<a className={"nav-link"+portfolio}>Portfolio</a>
 						</Link>
 					</li>
+					*/}
 					
 					<li className="nav-item mr-2">
-						<Link href="/playground/index">
+						<Link href="/playground">
 							<a className={"nav-link"+playground}>Playground</a>
 						</Link>
 					</li>
-					*/}
 					
 					<li className="nav-item mr-2">
 						<Link href="/about">

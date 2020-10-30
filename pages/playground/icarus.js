@@ -34,7 +34,7 @@ class Scene extends Component {
   	
   		this.scene.scene.add( this.icarus.group )
 		
-		this.icarus.group.position.x = 12	
+		//this.icarus.group.position.x = 12	
 		this.icarus.ship.scale.set( .8, .8, .8 )
 	}
   	
