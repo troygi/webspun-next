@@ -9,52 +9,33 @@ import SceneSetup from '../../components/three/scene.js'
 import DropSample from '../../components/controls/dropdown-sample'
 import Cube from '../../components/three/model-cube.js'
 
-
 export default function Home() {
 
 	const canvasId = "canvas"
-	var scene, cube, controls
+	var scene3D, cube, controls
 	const [color, setColor] = useState("red")
-	
-	// Raycaster
-	var raycaster = new THREE.Raycaster();
-	var mouse = new THREE.Vector2(1, 1);
-	var intersects = [];
-	
-	/* Raycaster
-	function mouseMove( event ) {
-
-		event.preventDefault();
-
-		mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-		mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-	}
-	*/
-	
 	
 	useEffect(() => {
 		
 		cube = new Cube(THREE, color);
 
-		scene = new SceneSetup(THREE, canvasId)
-		scene.camera.position.z = 3
-		scene.lights(THREE)
-		scene.scene.add(cube)
-		controls = new OrbitControls( scene.camera, scene.canvas )
-		animate()
+		scene3D = new SceneSetup(THREE, canvasId)
+		scene3D.camera.position.z = 3
+		scene3D.lights(THREE)
 		
-		// Raycaster
-		//document.addEventListener( 'mousemove', mouseMove, false );
+		scene3D.scene.add(cube)
+		controls = new OrbitControls( scene3D.camera, scene3D.canvas )
+		animate()
   	})
   	
   	function animate() {
 		
 		requestAnimationFrame(animate)
 		
-		cube.rotation.x += 0.01
-		cube.rotation.y += 0.01	
+		//cube.rotation.x += 0.01
+		//cube.rotation.y += 0.01	
 		
-		scene.renderer.render( scene.scene, scene.camera )		
+		scene3D.renderer.render( scene3D.scene, scene3D.camera )		
 	}
   	
 	function handleColorChange(e) {

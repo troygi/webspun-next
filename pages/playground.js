@@ -68,7 +68,7 @@ export default function Home() {
 		
 		<div className="row">
 			<div className="col-md-6">
-				<CardProject heading="3D Cube" link="#" src="./img/thumbnails/cube.png">
+				<CardProject heading="3D Primitives" link="#" src="./img/thumbnails/cube.png">
 					<p className="card-text">The Cube demo uses Three.js, a cross-browser JavaScript library and Application Programming Interface (API) used to create and display animated 3D computer graphics in a web browser. </p>
 				
 					<ul className="list">
@@ -85,6 +85,11 @@ export default function Home() {
 						<li>
 							<Link href="/playground/cube-vr">
 								<a>3D Cube (VR)</a>
+							</Link>
+						</li>
+						<li>
+							<Link href="/playground/primitives">
+								<a>3D Primitives</a>
 							</Link>
 						</li>
 						{/* 

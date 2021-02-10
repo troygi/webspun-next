@@ -34,12 +34,11 @@ export default function Scene() {
 		scene3D.lights(THREE)
 		
 		// Add ground
-		createGround("rgb(23%, 80%, 22%)")	
-		scene3D.renderer.setClearColor (0x63B5E6, 1);
+		createGround(0xBA945C)	
+		scene3D.renderer.setClearColor (0x63B5E6, 1)
 		
-
 		// Add drone
-		drone = new Drone(THREE, scene3D, settings, animate, {vr: true});
+		drone = new Drone(THREE, scene3D, settings, animate, {vr: true})
 		
 		// Skybox
 		var envMap = new THREE.CubeTextureLoader()
@@ -53,7 +52,7 @@ export default function Scene() {
 				"bkg3_back6.png", 
 				"bkg3_front5.png" 
 			]);
-			scene3D.scene.background = envMap;
+			scene3D.scene.background = envMap
 	
 	
 		// XR Controller - Right
