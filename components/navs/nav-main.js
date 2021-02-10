@@ -75,7 +75,7 @@ export default function Nav(props) {
 				<div className="bg-dark p-4">
 					<ul className="nav flex-column">
 						<li className="nav-item">
-							<Link href="/playground">
+							<Link href="/playground/">
 								<a className={"nav-link"+playground}>Playground Overview</a>
 							</Link>
 						</li>
@@ -102,7 +102,7 @@ export default function Nav(props) {
 					*/}
 					
 					<li className="nav-item mr-2">
-						<Link href="/playground">
+						<Link href="/playground/">
 							<a className={"nav-link"+playground}>Playground</a>
 						</Link>
 					</li>

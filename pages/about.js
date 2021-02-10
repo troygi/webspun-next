@@ -12,7 +12,7 @@ export default function Home() {
 		<h1>About</h1>
 	
 		<p>
-		Webspun Creative, LLC is the studio of designer and software engineer, Dennis "Troy" Gilliland. 
+		Webspun Creative, LLC. is the studio of designer and software engineer, Dennis "Troy" Gilliland. 
 		</p>
 		
 
