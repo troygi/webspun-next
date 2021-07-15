@@ -67,6 +67,7 @@ const Layout = props => (
 	
 	<style>{`
 	main.container-fluid {
+		max-width:700px;
 		margin-top:30px;
 	}
 	

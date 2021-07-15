@@ -11,7 +11,7 @@ const Layout = props => (
 	  <link rel="stylesheet" href="https://use.typekit.net/oeb1sbe.css" />
 	</Head>
 
-	<main className="container d-flex flex-column justify-content-center">
+	<main className="container d-flex flex-column align-items-center justify-content-start">
 		<Logo page="Home" />
 		{props.children}
 	</main>

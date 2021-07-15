@@ -7,40 +7,42 @@ export default function Home() {
 
 	return (
   
-  	<React.Fragment>
+  	<>
   	
   	<Layout page="Playground">
   	
 		<h1>Playground</h1>
-	
+		
 		<div className="row">
 			<div className="col-md-6">
-				<CardProject heading="Aerial Drone" link="#" src="./img/thumbnails/drone.png">
+				<CardProject heading="3D Aerial Drone" link="/playground/aerial-drone" src="./img/thumbnails/drone.png">
 					<p className="card-text">
-					The Aerial Drone demo is an interactive 3D model that shows the integration of a WebGL and an interface library (React).
+					An interactive 3D drone that shows the integration of a WebGL and an interface library (React).
 					</p>
-				
-					<ul className="list">
-						<li>
-							<Link href="/playground/aerial-drone">
-								<a>Aerial Drone</a>
-							</Link>
-						</li>
-						<li>
-							<Link href="/playground/aerial-drone-vr">
-								<a>Aerial Drone (VR)</a>
-							</Link>
-						</li>
-					</ul>
-				
 				</CardProject>
 			</div>
 			<div className="col-md-6">
+				<CardProject heading="3D Aerial Drone - VR" link="/playground/aerial-drone-vr" src="./img/thumbnails/drone.png">
+					<p className="card-text">
+					An interactive 3D drone in VR that shows the integration of a WebGL and an interface library (React).
+					</p>
+				</CardProject>
+			</div>
+		</div>
+		
+		<div className="row">
+			<div className="col-md-6">
 			
-				<CardProject heading="Icarus" link="#" src="./img/thumbnails/icarus.png">
-					
-					<p className="card-text">The Space ship demo is an interactive 3D model that shows the integration of a WebGL and an interface library (React).</p>
-					
+				<CardProject heading="3D Icarus" link="/playground/icarus" src="./img/thumbnails/icarus.png">
+					<p className="card-text">An interactive 3D spaceship that shows the integration of a WebGL and an interface library (React).</p>
+				</CardProject>
+				
+			</div>
+			<div className="col-md-6">
+			
+				<CardProject heading=" 3D Icarus - VR" link="/playground/icarus-vr" src="./img/thumbnails/icarus.png">
+					<p className="card-text">An interactive 3D spaceship in VR that shows the integration of a WebGL and an interface library (React).</p>
+					{/* 
 					<ul className="list">
 						<li>
 							<Link href="/playground/icarus">
@@ -52,20 +54,19 @@ export default function Home() {
 								<a>Icarus (VR)</a>
 							</Link>
 						</li>
-						{/* 
 						<li>
 							<Link href="/playground/icarus-blastoff">
 								<a>Icarus Blastoff</a>
 							</Link>
 						</li>
-						*/}
 					</ul>
-
+					*/}
 				</CardProject>
 				
 			</div>
 		</div>
 		
+		{/* 
 		<div className="row">
 			<div className="col-md-6">
 				<CardProject heading="3D Primitives" link="#" src="./img/thumbnails/cube.png">
@@ -92,7 +93,7 @@ export default function Home() {
 								<a>3D Primitives</a>
 							</Link>
 						</li>
-						{/* 
+						
 						<li>
 							<Link href="/playground/cube-raycaster">
 								<a>3D Cube (Raycaster)</a>
@@ -103,22 +104,23 @@ export default function Home() {
 								<a>3D Cube (VR - Raycaster)</a>
 							</Link>
 						</li>
-						*/}
+						
 					</ul>
 				
 				</CardProject>
 			</div>
 			<div className="col-md-6">
-				{/* 
+				
 				<CardProject heading="Aerial Drone Base Station" link="#" src="./img/thumbnails/aerial-drone-base-station.png">
 					<p className="card-text">
 					The Aerial Drone Base Station demo used is <a href="https://www.adobe.com/products/aero.html">Adobe Aero</a>, an augmented reality authoring and publishing tool by Adobe Inc.
 					</p>
 				</CardProject>
-				*/}
+				
 				
 			</div>
 		</div>
+		*/}
 		
   	</Layout>
   	
@@ -126,6 +128,6 @@ export default function Home() {
 	
     `}</style>
     
-    </React.Fragment>
+    </>
 	)
 }

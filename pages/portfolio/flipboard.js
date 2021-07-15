@@ -7,7 +7,7 @@ import CarouselItem from '../../components/navs/carousel-item';
 export default function Home() {
 	return (
   	
-  	<React.Fragment>
+  	<>
   	<Layout page="Flipboard">
   	
 		<div className="card-portfolio-logo">
@@ -36,7 +36,7 @@ export default function Home() {
   	
   	</Layout>
 
-  	</React.Fragment>
+  	</>
 		
 	)
 }

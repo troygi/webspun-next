@@ -5,7 +5,7 @@ export default function Home() {
 
 	return (
   
-  	<React.Fragment>
+  	<>
   	
   	<Layout page="About">
   	
@@ -54,6 +54,6 @@ export default function Home() {
 	
     `}</style>
     
-    </React.Fragment>
+    </>
 	)
 }

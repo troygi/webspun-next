@@ -12,10 +12,7 @@ const Card = (props) => (
 	  <img src={props.src} className="card-img-top" alt="..." />
 	  <div className="card-body">
 		<h5 className="card-title">{props.heading}</h5>
-		
 		{props.children}
-		
-		{/* <a href={props.link} className="btn btn-primary">More...</a> */}
 	  </div>
 	</div>
 	</a>

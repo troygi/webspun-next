@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 export default function Home() {
 	return (
   
-  	<React.Fragment>
+  	<>
   	
   	<Layout page="Services">
   	
@@ -29,6 +29,6 @@ export default function Home() {
     `}</style>
     
 
-    </React.Fragment>
+    </>
 	)
 }
