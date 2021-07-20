@@ -1,35 +1,11 @@
 import Link from "next/link"
+import { useRouter } from 'next/router'
 
 export default function Nav(props) {
 
-	var home="", 
-	portfolio="", 
-	playground="", 
-	about="",
-	
-	flipboard="", 
-	bankInternet="", 
-	bankIntranet="", 
-	snap2play="", 
-	mcdonalds="", 
-	lego="";
-	
-	if (props.mainAct == "Home") {home = " active"}
-	if (props.mainAct == "Portfolio") {portfolio = " active"}
-	if (props.mainAct == "Playground") {playground = " active"}
-	if (props.mainAct == "About") {about = " active"}
-	
-	
-	
-	if (props.active == "Flipboard") {flipboard = " active"}
-	if (props.active == "Bank Internet") {bankInternet = " active"}
-	if (props.active == "Bank Intranet") {bankIntranet = " active"}
-	if (props.active == "Snap2Play") {snap2play = " active"}
-	if (props.active == "Mcdonalds") {mcdonalds = " active"}
-	if (props.active == "Lego") {lego = " active"}
-	
-	
-	
+	const router = useRouter();
+	const path = router.pathname;
+
 	return ( 
 		<div id="navbar-bottom" className="accordion d-flex flex-column justify-content-end align-items-center fixed-bottom">
 			
@@ -44,27 +20,27 @@ export default function Nav(props) {
 					<ul className="nav flex-column">
 						<li className="nav-item">
 							<Link href="/portfolio/flipboard">
-								<a className={"nav-link"+flipboard}>Flipboard</a>
+								<a className={`nav-link${path === '/portfolio/flipboard' ? ' active' : ''}`}>Flipboard</a>
 							</Link>
 						</li>
 						<li className="nav-item">
 							<Link href="/portfolio/bank-internet">
-								<a className={"nav-link"+bankInternet}>HSBC</a>
+								<a className={`nav-link${path === '/portfolio/bank-internet' ? ' active' : ''}`}>HSBC</a>
 							</Link>
 						</li>
 						<li className="nav-item">
 							<Link href="/portfolio/snap2play">
-								<a className={"nav-link"+snap2play}>Snap2play</a>
+								<a className={`nav-link${path === '/portfolio/snap2play' ? ' active' : ''}`}>Snap2play</a>
 							</Link>
 						</li>
 						<li className="nav-item">
 							<Link href="/portfolio/mcdonalds">
-								<a className={"nav-link"+mcdonalds}>McDonald's</a>
+								<a className={`nav-link${path === '/portfolio/mcdonalds' ? ' active' : ''}`}>McDonald</a>
 							</Link>
 						</li>
 						<li className="nav-item">
 							<Link href="/portfolio/lego">
-								<a className={"nav-link"+lego}>Lego</a>
+								<a className={`nav-link${path === '/portfolio/lego' ? ' active' : ''}`}>Lego</a>
 							</Link>
 						</li>
 					</ul>
@@ -75,8 +51,8 @@ export default function Nav(props) {
 				<div className="bg-dark p-4">
 					<ul className="nav flex-column">
 						<li className="nav-item">
-							<Link href="/playground/">
-								<a className={"nav-link"+playground}>Playground Overview</a>
+							<Link href="/playground">
+								<a className={`nav-link${path === '/playground' ? ' active' : ''}`}>Playground Overview</a>
 							</Link>
 						</li>
 					</ul>
@@ -86,7 +62,13 @@ export default function Nav(props) {
 			<nav id="navbar-bottom-main" className="navbar flex-row-off justify-content-center align-items-center navbar-light">
 				<ul id="nav-main" className="nav nav-main flex-nowrap nav-pills justify-content-center">
 					<li className="nav-item mr-2">
-						<a className={"nav-link"+portfolio} data-toggle="collapse" data-target="#navPortfolio" aria-controls="navPortfolio" aria-expanded="false" aria-label="Toggle navigation">Portfolio</a>
+						<a className={`nav-link${(path === '/portfolio/flipboard') ||
+						(path === '/portfolio/bank-internet') ||
+						(path === '/portfolio/snap2play') ||
+						(path === '/portfolio/mcdonalds') ||
+						(path === '/portfolio/lego')
+						 ? ' active' : ''}`} 
+						data-toggle="collapse" data-target="#navPortfolio" aria-controls="navPortfolio" aria-expanded="false" aria-label="Toggle navigation">Portfolio</a>
 					</li>
 					
 					{/* 
@@ -102,14 +84,14 @@ export default function Nav(props) {
 					*/}
 					
 					<li className="nav-item mr-2">
-						<Link href="/playground/">
-							<a className={"nav-link"+playground}>Playground</a>
+						<Link href="/playground">
+							<a className={`nav-link${path === '/playground' ? ' active' : ''}`}>Playground</a>
 						</Link>
 					</li>
 					
 					<li className="nav-item mr-2">
 						<Link href="/about">
-							<a className={"nav-link"+about}>About</a>
+							<a className={`nav-link${path === '/about' ? ' active' : ''}`}>About</a>
 						</Link>
 					</li>
 				</ul>
